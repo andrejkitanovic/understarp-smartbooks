@@ -3,6 +3,7 @@
 // ? BLOCK
 
 $block = 'multi-column';
+$blockClass = $block;
 
 //  * |-- Block styling
 
@@ -33,6 +34,13 @@ if($textAlignment){
     $textStyle = 'text-align:' . $textAlignment . ';';
 }
 
+//  * |---|--> Block padding
+
+$padding = get_field('padding');
+
+if ($padding) {
+    $blockClass .= ' padding-' . $padding;  
+}
 
 if($bgStyle){
     $blockStyle .= $bgStyle;
@@ -45,8 +53,9 @@ if($textStyle){
 
 $heading = get_field('heading');
 $headingClass = $block . '__heading';
-$headingSize = get_field('heading_size');
-$headingColor = get_field('heading_color');
+$headingSize = $heading['size'];
+$headingColor = $heading['color'];
+$headingText = $heading['text'];
 
 $headingStyle = 'color:' . $headingColor . ';';
 
@@ -61,7 +70,7 @@ $numberOfColumns = count($columns);
 ?>
 
 
-<?php initializeSection($block, $blockStyle) ?>
-    <?php createHeaderElement($headingClass, $headingSize, $headingStyle, $heading); ?>
+<?php initializeSection($blockClass, $blockStyle) ?>
+    <?php createHeaderElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 
 </section>

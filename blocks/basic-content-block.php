@@ -3,6 +3,7 @@
 // ? BLOCK
 
 $block = 'basic-content';
+$blockClass = $block;
 
 //  * |--> Block styling
 
@@ -28,6 +29,14 @@ if ($bgType) {
 
 $textStyle = '';
 $textAlignment = get_field('text_alignment');
+
+//  * |---|--> Block padding
+
+$padding = get_field('padding');
+
+if ($padding) {
+    $blockClass .= ' padding-' . $padding;  
+}
 
 if ($textAlignment) {
     $textStyle = 'text-align:' . $textAlignment . ';';

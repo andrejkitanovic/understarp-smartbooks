@@ -3,6 +3,7 @@
 // ? BLOCK
 
 $block = 'multi-column';
+$blockClass = $block;
 
 //  * |-- Block styling
 
@@ -38,7 +39,7 @@ $slidesInterval = get_field('slides_interval');
 $button = get_field('button');
 ?>
 
-<?php initializeSection($block, $blockStyle) ?>
+<?php initializeSection($blockClass, $blockStyle) ?>
     <div class="col-6">
 
     </div>
