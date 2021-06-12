@@ -1,0 +1,58 @@
+{
+    "key": "group_5d43515fefaef",
+    "title": "Thumbnail",
+    "fields": [
+        {
+            "key": "field_5d435162441fb",
+            "label": "Thumbnail Show",
+            "name": "thumbnail_show",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "On",
+                "0": "Off"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": 1,
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-templates\/case-studies-template.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-templates\/landingpage-template.php"
+            }
+        ]
+    ],
+    "menu_order": -1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1568192991
+}

@@ -1,0 +1,163 @@
+.header {
+
+  .container {
+    @media (min-width: 1400px) {
+      max-width: 1300px;
+    }
+  }
+
+  &__logo {
+    max-width: 200px;
+
+    @media(min-width: 576px) {
+      max-width: 300px;
+    }
+  }
+
+  &__nav {
+    color: $primary;
+    font-size: 20px;
+    font-weight: 600;
+
+    > li > a {
+      line-height: 20px;
+
+      &:hover {
+        color: $primary;
+        opacity: 0.7;
+      }
+
+      @media(min-width: 1200px) {
+        margin-left: 15px;
+      }
+    }
+
+    .dropdown-menu a {
+      padding: .4rem 1.5rem;
+    }
+
+    li:last-child a.nav-link {
+      width: 150px;
+      color: #fff;
+      font-weight: 300;
+      font-size: 20px;
+      background-color: #f47521;
+      padding: 7px 20px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+      line-height: 32px;
+      margin-top: 10px;
+      white-space: nowrap;
+
+      &:hover {
+        opacity: 1;
+        color: #fff;
+        background-color: #c3560e;
+      }
+
+      @media(min-width: 992px) {
+        width: auto;
+        padding: 7px 10px;
+        margin-left: 40px;
+        margin-top: 0;
+      }
+
+      @media(min-width: 1200px) {
+        padding: 7px 28px;
+      }
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    margin-left: 10px;
+    width: 17px;
+    height: 10px;
+    vertical-align: 0;
+    background: url(../src/img/arrow.svg) no-repeat center center;
+    background-size: 17px;
+  }
+
+  .navbar {
+    padding: 20px;
+    background-color: #fff;
+    top: 0;
+
+    &--ticker {
+      top: 73px;
+
+      @media(min-width: 400px) {
+        top: 54px;
+      }
+
+      @media(min-width: 730px) {
+        top: 44px;
+      }
+    }
+
+    &-collapse.show,
+    &-collapse.collapsing {
+      > ul {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  .dropdown-toggle {
+    white-space: normal;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .navbar-expand-lg .header__nav {
+    @media (min-width: 992px) {
+      align-items: center;
+    }
+  }
+}
+
+.ticker {
+  background-color: #e9701f;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  overflow: hidden;
+  min-height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+
+  @media(min-width: 992px) {
+    height: 44px;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+
+    @media(min-width: 992px) {
+      font-size: 20px;
+    }
+  }
+
+  &__btn {
+    color: #f47521;
+    font-size: 12px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-left: 5px;
+    font-weight: 400;
+    padding: 3px 13px;
+
+    @media(min-width: 768px) {
+      font-size: 14px;
+      margin-left: 20px;
+    }
+  }
+}

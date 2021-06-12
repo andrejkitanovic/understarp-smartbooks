@@ -1,0 +1,77 @@
+{
+    "key": "group_5d47110b6d6e1",
+    "title": "Post Author",
+    "fields": [
+        {
+            "key": "field_5d471118ac7b4",
+            "label": "Author Show",
+            "name": "pa_show",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "On",
+                "0": "Off"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": 0,
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5d47112dac7b5",
+            "label": "Author Bio",
+            "name": "pa_bio",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-templates\/case-studies-template.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-templates\/landingpage-template.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1568190358
+}

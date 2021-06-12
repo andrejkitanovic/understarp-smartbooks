@@ -1,0 +1,129 @@
+.inner-contact {
+  padding-top: 40px;
+  padding-bottom: 30px;
+
+  @media(min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .row {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__header {
+    @extend .col-11;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 20px;
+    color: #3a3a3a;
+  }
+
+  &__image {
+    @extend .col-12;
+    @extend .col-md-6;
+    @extend .col-lg-4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+    span {
+      display: block;
+      font-size: 36px;
+      line-height: 48px;
+      font-weight: 200;
+      text-transform: uppercase;
+      color: #005c97;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  &__form {
+    @extend .col-12;
+    @extend .col-md-6;
+
+    p {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      span {
+        width: 100%;
+        margin-bottom: 10px;
+
+        @media (min-width: 576px) {
+          width: 48%;
+        }
+
+        input {
+          font-size: 14px;
+          line-height: 26px;
+          color: #0081ab;
+          font-weight: 400;
+          width: 100%;
+          outline: 0;
+          padding: 10px;
+          background-color: #fff;
+          transition: all 0.2s ease;
+          border: 1px solid #7a8e9b;
+
+          &::placeholder {
+            color: #0081ab;
+          }
+
+          &:hover,
+          &:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+          }
+        }
+
+        .wpcf7-not-valid-tip {
+          width: 100%;
+        }
+
+      }
+    }
+
+    .btn {
+      margin-top: 15px;
+    }
+
+    div.wpcf7-validation-errors {
+      display: none !important;
+    }
+  }
+
+  &__privacy {
+    font-size: 10px;
+    line-height: 14px;
+    margin-top: 20px;
+    color: #3a3a3a;
+    letter-spacing: -0.4px;
+
+    p {
+      display: block;
+    }
+
+    a {
+      color: #f47521;
+    }
+  }
+}

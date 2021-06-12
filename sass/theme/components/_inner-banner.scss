@@ -1,0 +1,38 @@
+.inner-banner {
+  overflow: hidden;
+  padding: 70px 0;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  &--right {
+    .row {
+      justify-content: flex-end;
+    }
+  }
+
+  &__content {
+    @extend .col-12;
+    @extend .col-md-8;
+    @extend .col-lg-6;
+    font-weight: 300;
+    color: #666;
+  }
+
+  &__title {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 20px;
+
+    a {
+      color: #f47521;
+    }
+
+  }
+}

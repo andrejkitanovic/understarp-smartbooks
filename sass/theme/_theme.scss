@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/WorkSans-SemiBold.ttf') format('truetype'),
+  url('../fonts/WorkSans-SemiBold.woff2') format('woff2'),
+  url('../fonts/WorkSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/WorkSans-Light.ttf') format('truetype'),
+  url('../fonts/WorkSans-Light.woff2') format('woff2'),
+  url('../fonts/WorkSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('../fonts/WorkSans-Regular.ttf') format('truetype'),
+  url('../fonts/WorkSans-Regular.woff2') format('woff2'),
+  url('../fonts/WorkSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.wrapper {
+  padding-top: 96px;
+  padding-bottom: 0;
+
+  &--ticker {
+    padding-top: 135px;
+  }
+}
+
+.btn {
+  color: #fff;
+  font-weight: 300;
+  font-size: 15px;
+  background-color: #f47521;
+  padding: 7px 20px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #fff;
+    //background-color: #c3560e !important;
+    filter: brightness(.7);
+  }
+
+  @media(min-width: 576px) {
+    font-size: 20px;
+    padding: 7px 30px;
+  }
+}
+
+.separator + section {
+  box-shadow: none;
+}
+
+.container {
+  @media (min-width: 1400px) {
+    max-width: 1300px;
+  }
+}
+
+
+// Hubspot
+
+@media (max-width: 400px), (max-device-width: 480px) and (min-device-width: 320px) {
+  form .form-columns-2 .hs-form-field .hs-input,
+  form .form-columns-3 .hs-form-field .hs-input {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,27 @@
+.case {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  box-shadow: 0 10px 6px -6px #999;
+
+
+  &__image {
+    @extend .col-12;
+    @extend .col-lg-4;
+  }
+
+  &__descr {
+    @extend .col-12;
+    @extend .col-lg-8;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 300;
+    margin-bottom: 40px;
+
+    @media(min-width: 768px) {
+      font-size: 34px;
+    }
+  }
+}

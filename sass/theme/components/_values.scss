@@ -1,0 +1,51 @@
+.values {
+  padding: 50px 0;
+  position: relative;
+  color: #005c97;
+
+  @media (min-width: 768px) {
+    padding-top: 50px;
+    padding-bottom: 80px;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -.7px;
+    line-height: 38px;
+    margin-bottom: 35px;
+  }
+
+  &__item {
+    @extend .col-12;
+    @extend .col-md-5;
+    display: flex;
+    margin-bottom: 40px;
+  }
+
+  &__descr {
+    padding-left: 15px;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -.7px;
+
+    }
+
+    p {
+      margin: 0;
+      font-weight: 300;
+    }
+  }
+
+  &__icon {
+    min-width: 100px;
+  }
+}

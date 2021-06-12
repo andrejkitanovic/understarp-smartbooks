@@ -1,0 +1,105 @@
+.contact-us {
+  overflow: hidden;
+  padding-top: 70px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  position: relative;
+
+  @media (min-width: 768px) {
+    padding-bottom: 80px;
+  }
+
+
+  &__inner {
+    @extend .col-12;
+    @extend .col-lg-5;
+    color: #005c97;
+    background-color: rgba(255,255,255, 0.96);
+    box-shadow: -111px -1px 82px 200px rgba(255,255,255, 0.96);
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 32px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+
+    @media (min-width: 576px) {
+      font-size: 34px;
+
+    }
+
+    @media (min-width: 1200px) {
+      padding-right: 35px;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: -0.7px;
+  }
+
+  &__form {
+
+    p {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-right: 40px;
+
+      span {
+        width: 100%;
+        margin-bottom: 10px;
+
+        @media (min-width: 576px) {
+          width: 48%;
+        }
+
+        input {
+          font-size: 14px;
+          line-height: 26px;
+          color: #0081ab;
+          font-weight: 400;
+          width: 100%;
+          outline: 0;
+          padding: 10px;
+          background-color: #fff;
+          transition: all 0.2s ease;
+          border: 1px solid #7a8e9b;
+
+          &::placeholder {
+            color: #0081ab;
+          }
+
+          &:hover,
+          &:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+          }
+        }
+
+        .wpcf7-not-valid-tip {
+          width: 100%;
+        }
+
+      }
+    }
+
+    div.wpcf7-validation-errors {
+      display: none !important;
+    }
+  }
+
+  &__btn {
+    margin-top: 35px;
+    padding: 7px 20px;
+    font-size: 20px;
+  }
+
+}

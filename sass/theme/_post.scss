@@ -1,0 +1,142 @@
+.post {
+  @extend .col-12;
+  @extend .col-md-9;
+  background-color: #f7f7f7;
+  padding: 30px 20px;
+  box-shadow: -400px 0px 0px 0px rgba(247, 247, 247, 1);
+  margin-bottom: 40px;
+
+  @media(min-width: 768px) {
+    margin-top: 0;
+  }
+
+  &__category {
+    color: #1f54e5;
+  }
+
+  &__title {
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: -0.7px;
+  }
+
+  &__main-img {
+    @extend .col-12;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  &__info {
+    font-weight: 600;
+    color: #1f54e5;
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &__content {
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: normal;
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+    h6 {
+      font-size: 16px;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__author {
+    @extend .col-12;
+    @extend .col-lg-10;
+    display: flex;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
+
+    &-photo {
+      @extend .col-2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      padding: 0;
+      margin-right: 20px;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    &-info {
+      padding: 10px 0;
+
+      address {
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__share {
+    @extend .col-2;
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+    margin-top: 20px;
+
+    @media(min-width: 992px) {
+      margin-top: 0;
+    }
+
+    @media(min-width: 1200px) {
+      padding: 0 15px;
+    }
+
+    a {
+      font-size: 19px;
+      opacity: 0.7;
+      margin-left: 10px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

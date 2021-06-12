@@ -1,0 +1,120 @@
+.inner-case {
+  padding: 40px 0;
+
+  .row {
+    align-items: center;
+  }
+
+  &__content {
+    @extend .col-12;
+    @extend .col-lg-7;
+    padding: 0 20px;
+    margin-bottom: 30px;
+
+    @media(min-width: 768px) {
+      padding: 0 40px;
+    }
+
+    h3 {
+      font-size: 30px;
+      line-height: 34px;
+      margin-bottom: 20px;
+    }
+
+    div {
+      font-size: 16px;
+
+      @media(min-width: 768px) {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  &__quote {
+    @extend .col-12;
+    @extend .col-lg-5;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 27px;
+      margin-bottom: 30px;
+    }
+
+    form {
+      @extend .col-12;
+
+      p {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        span {
+          width: 100%;
+          margin-bottom: 10px;
+
+          @media (min-width: 576px) {
+            width: 48%;
+          }
+
+          input {
+            font-size: 14px;
+            line-height: 26px;
+            color: #0081ab;
+            font-weight: 400;
+            width: 100%;
+            outline: 0;
+            padding: 10px;
+            background-color: #fff;
+            transition: all 0.2s ease;
+            border: 1px solid #7a8e9b;
+
+            &::placeholder {
+              color: #0081ab;
+            }
+
+            &:hover,
+            &:focus {
+              border-color: #80bdff;
+              outline: 0;
+              box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+            }
+          }
+
+          .wpcf7-not-valid-tip {
+            width: 100%;
+          }
+
+        }
+      }
+
+      div.wpcf7-validation-errors {
+        display: none !important;
+      }
+    }
+
+    &-text {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    &-user {
+      font-weight: 600;
+    }
+
+    &-btn {
+      align-self: center;
+    }
+  }
+
+  //// Hubspot style fix
+  //input .hs-input[name="company"],
+  //input .hs-input[name="email"] {
+  //  @media(max-width: 479px) {
+  //    width: 95% !important;
+  //  }
+  //}
+
+}

@@ -1,0 +1,159 @@
+.book-page {
+
+  &__inner {
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+  }
+
+  &__descr {
+    @extend .col-12;
+    @extend .col-md-7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(max-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form {
+    @extend .col-12;
+    @extend .col-md-5;
+    padding: 25px 20px;
+    background-color: #ffffff;
+
+    h2 {
+      font-size: 18px;
+      color: #333;
+      font-weight: 400;
+      margin-bottom: 30px;
+
+      @media(min-width: 576px) {
+        font-size: 24px;
+      }
+    }
+
+    p {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      span {
+        width: 100%;
+        margin-bottom: 10px;
+
+        @media (min-width: 576px) {
+          width: 48%;
+        }
+
+        input {
+          font-size: 14px;
+          line-height: 26px;
+          color: #0081ab;
+          font-weight: 400;
+          width: 100%;
+          outline: 0;
+          padding: 10px;
+          background-color: #fff;
+          transition: all 0.2s ease;
+          border: 1px solid #7a8e9b;
+
+          &::placeholder {
+            color: #0081ab;
+          }
+
+          &:hover,
+          &:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+          }
+        }
+
+        .wpcf7-not-valid-tip {
+          width: 100%;
+        }
+
+      }
+    }
+
+    div.wpcf7-validation-errors {
+      display: none !important;
+    }
+  }
+
+  &__footer {
+    padding: 50px 0 20px;
+  }
+
+  &__subhead {
+    color: rgba(51, 51, 51, 0.8);
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+
+  &__copy {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 1.2;
+      color: #005c97;
+    }
+
+    ul {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    li {
+      text-align: left;
+      padding-left: 30px;
+      margin-bottom: 12px;
+      line-height: 1.25em;
+      margin-left: 25px;
+      list-style-type: none;
+      background: url(../src/img/list-type.png) no-repeat left top;
+    }
+
+    p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.5em;
+    }
+
+    a {
+      font-size: 17px;
+      font-weight: 400;
+      text-transform: none;
+      color: #f47521;
+    }
+  }
+}

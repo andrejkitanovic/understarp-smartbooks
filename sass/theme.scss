@@ -1,0 +1,58 @@
+@import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
+@import "assets/bootstrap4";      // <-------- Loads Bootstrap4
+@import "understrap/understrap";  // <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
+//@import "understrap/woocommerce"; // <-------- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+
+// Optional files - If you dont use the corresponding scripts/fonts comment em out
+@import "assets/font-awesome";    // <-------- Font Awesome Icon font
+@import "assets/underscores";     // <-------- Underscores media styles
+
+// Any additional imported files //
+@import "theme/theme";            // <-------- That's where you can add your own design.
+
+// Header
+@import "theme/header";
+
+// Blog
+@import "theme/blog";
+
+// Post
+@import "theme/post";
+@import "theme/post-promo";
+
+// Sidebar
+@import "theme/sidebar";
+
+// Components styles //
+@import "theme/components/homepage-banner";
+@import "theme/components/worked-with";
+@import "theme/components/features";
+@import "theme/components/solutions";
+@import "theme/components/contact-us";
+@import "theme/components/inner-intro";
+@import "theme/components/profit";
+@import "theme/components/technology";
+@import "theme/components/case";
+@import "theme/components/quote";
+@import "theme/components/resources";
+@import "theme/components/services";
+@import "theme/components/testimonial";
+@import "theme/components/default-content";
+@import "theme/components/inner-contact";
+@import "theme/components/inner-banner";
+@import "theme/components/privilege";
+@import "theme/components/plans";
+@import "theme/components/team";
+@import "theme/components/separator";
+@import "theme/components/subscribe";
+@import "theme/components/inner-case";
+@import "theme/components/case-intro";
+@import "theme/components/book-page";
+@import "theme/components/thank-page";
+
+// Footer
+@import "theme/footer";
+
+
+
+

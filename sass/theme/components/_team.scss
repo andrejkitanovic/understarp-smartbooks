@@ -1,0 +1,185 @@
+.team {
+  padding-top: 80px;
+  padding-bottom: 40px;
+
+  @media(min-width:768px) {
+    padding-bottom: 124px;
+  }
+
+  &__title {
+    @extend .col-12;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 200;
+    margin-bottom: 30px;
+    color: #005c97;
+
+    @media(min-width: 768px) {
+      font-size: 34px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__category {
+    @extend .col-12;
+    font-size: 24px;
+    color: #005C97;
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  &__list {
+    .col-lg-8 {
+      .team__item-inner {
+        background-color: #e9701f;
+      }
+
+      .team__info {
+        color: #fff;
+      }
+
+      @media(min-width: 500px) {
+        .team__ind-year,
+        .team__smrt-year {
+          opacity: 1;
+          z-index: 5;
+        }
+      }
+
+      .team__bio {
+        display: block;
+      }
+
+      .team__badge1,
+      .team__badge2 {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 5px;
+
+    &-inner {
+      background-color: #f2f2f2;
+      position: relative;
+      border-radius: 10px;
+      display: flex;
+      cursor: pointer;
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+    max-width: 180px;
+    border-radius: 10px;
+    width: 100%;
+    flex-shrink: 0;
+
+    @media(min-width: 500px) {
+      display: flex;
+    }
+
+    &:hover {
+      .team__overlay {
+        opacity: 1;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__ind-year,
+  &__smrt-year {
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    top: -1px;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__ind-year {
+    background: url(../src/img/years.png) no-repeat center center;
+    right: 80px;
+    background-size: cover;
+
+    span {
+      margin-top: 20px;
+      display: block;
+      margin-right: 9px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+
+  &__smrt-year {
+    background: url(../src/img/YearsSmartBooks.png) no-repeat center center;
+    right: 5px;
+    background-size: cover;
+
+    span {
+      color: #33bdd3;
+      margin-top: 20px;
+      display: block;
+      margin-right: 9px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  &__info {
+    padding: 10px 10px 0 0;
+    text-align: left;
+    color: #005c97;
+    margin-left: 5px;
+  }
+
+  &__name {
+    line-height: 18px;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  &__position {
+    line-height: 18px;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  &__bio {
+    display: none;
+    font-size: 13px;
+    margin-left: 5px;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    p:first-child::first-line {
+      font-weight: 600;
+    }
+
+  }
+
+  &__badge1,
+  &__badge2 {
+    position: absolute;
+    max-width: 70px;
+    bottom: 10px;
+  }
+
+  &__badge1 {
+    right: 10px;
+  }
+
+  &__badge2 {
+    right: 70px;
+  }
+}

@@ -1,0 +1,143 @@
+.homepage-banner {
+  overflow: hidden;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #072344;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  position: relative;
+
+  @media(min-width: 576px) {
+    padding-top: 70px;
+  }
+
+  &__descr {
+    @extend .col-12;
+    @extend .col-lg-7;
+    @extend .col-xl-6;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    background-color: rgba(7, 35, 68, 0.96);
+    box-shadow: -111px -1px 63px 187px rgba(7, 35, 68, 0.97);
+
+    > span {
+      font-weight: 500;
+      font-size: 22px;
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    margin-bottom: 30px;
+    font-size: 36px;
+    line-height: 40px;
+
+    @media(min-width: 576px) {
+      font-size: 50px;
+      line-height: 54px;
+    }
+
+    @media(min-width: 768px) {
+      font-size: 60px;
+      line-height: 66px;
+    }
+
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 50px;
+
+    @media(min-width: 576px) {
+      font-size: 24px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    max-width: 350px;
+    padding: 20px;
+    text-align: left;
+    text-decoration: none;
+    color: #fff;
+    background-color: #005c97;
+    border: none;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.43);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      background-color: #003658;
+    }
+
+    b {
+      display: block;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    span {
+      font-weight: 300;
+      font-size: 20px;
+
+      @media(min-width: 576px) {
+        font-size: 25px;
+      }
+    }
+
+    &--unique {
+      background-color: #f47521;
+      text-align: center;
+      max-width: 250px;
+
+      b {
+        display: none;
+      }
+
+      &:hover {
+        background-color: #c3560e;
+      }
+    }
+  }
+
+  &__specialist {
+    @extend .col-12;
+    @extend .col-lg-5;
+    @extend .col-xl-6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+  }
+
+  &__info {
+    display: none;
+    min-width: 225px;
+    border: 2px solid #fff;
+    padding: 10px;
+    color: #fff;
+    text-align: right;
+    line-height: 18px;
+
+    > b {
+      display: block;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    > span {
+      font-size: 14px;
+    }
+
+    @media(min-width: 992px) {
+      display: block;
+    }
+  }
+}

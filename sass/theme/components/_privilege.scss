@@ -1,0 +1,91 @@
+.privilege {
+  padding: 40px 0;
+  background-repeat: no-repeat;
+  background-position: 900px center;
+  box-shadow: 0 10px 6px -6px #999;
+  z-index: -1;
+  position: relative;
+
+  @media(min-width: 768px) {
+    padding: 110px 0;
+  }
+
+
+  .row {
+    justify-content: center;
+  }
+
+  &__title {
+    @extend .col-12;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #f47621;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media(min-width: 768px) {
+      font-size: 34px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    @extend .col-12;
+    @extend .col-md-9;
+  }
+
+  &__item {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 30px;
+
+    @media(min-width: 768px) {
+      padding-left: 0;
+    }
+
+    h3 {
+      line-height: 30px;
+      font-weight: 300;
+      color: #005c97;
+      font-size: 22px;
+
+      @media(min-width: 768px) {
+        line-height: 1.2;
+        font-size: 24px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 22px;
+      color: #3a3a3a;
+
+      @media(min-width: 768px) {
+        line-height: 27px;
+        font-size: 18px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      background: url(../src/img/orange-checkmark.png) no-repeat center center;
+      background-size: cover;
+      width: 25px;
+      height: 25px;
+      left: -3px;
+      top: 2px;
+
+      @media(min-width: 768px) {
+        width: 38px;
+        height: 38px;
+        left: -120px;
+        top: 0;
+      }
+    }
+  }
+}

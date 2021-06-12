@@ -1,0 +1,38 @@
+.case-intro {
+
+  .row {
+    margin: 0;
+  }
+
+  &__image {
+    @extend .col-12;
+    @extend .col-md-6;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+    img {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    @extend .col-12;
+    @extend .col-md-6;
+    padding: 20px 30px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    background-color: #f46a1c;
+    align-items: center;
+    color: #fff;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}

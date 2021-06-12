@@ -1,0 +1,43 @@
+.technology {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  box-shadow: 0 10px 6px -6px #999;
+  position: relative;
+
+  &__descr {
+    @extend .col-12;
+    @extend .col-md-6;
+    @extend .col-lg-4;
+    margin-bottom: 50px;
+
+    @media( min-width: 768px ) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 300;
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 20px;
+    color: #3a3a3a;
+  }
+
+  &__list {
+    @extend .col-12;
+    @extend .col-md-6;
+    @extend .col-lg-8;
+  }
+
+  &__item {
+    @extend .col-6;
+    @extend .col-lg-4;
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+}

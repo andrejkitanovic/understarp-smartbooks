@@ -1,0 +1,49 @@
+.quote {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  box-shadow: 0 10px 6px -6px #999;
+
+  .row {
+    justify-content: center;
+  }
+
+  &__text {
+    @extend .col-12;
+    @extend .col-lg-10;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 30px;
+    padding-top: 40px;
+    background: url(../src/img/right-quote.svg) no-repeat top center;
+    background-size: 100px 100px;
+
+    @media (min-width: 576px) {
+      line-height: 2;
+    }
+  }
+
+  &__info {
+    @extend .col-8;
+    @extend .col-md-4;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 30px;
+  }
+
+  &__author {
+    font-size: 16px;
+    line-height: 20px;
+    color: #4c4c4c;
+    margin-bottom: 0;
+  }
+
+  &__position {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    color: #a7a7a7;
+  }
+}
