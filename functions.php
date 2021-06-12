@@ -33,6 +33,8 @@ $understrap_includes = array(
 	'/woocommerce.php',                     // Load WooCommerce functions.
 	'/editor.php',                          // Load Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
+	'/blocks.php',                      	// Define ACF blocks
+	'/helpers.php',                      	// Helper functions
 );
 
 foreach ( $understrap_includes as $file ) {

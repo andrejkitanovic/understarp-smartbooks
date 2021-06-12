@@ -1,0 +1,7 @@
+<?php
+
+// ? BLOCK
+
+$block = 'testimonials';
+
+?>
