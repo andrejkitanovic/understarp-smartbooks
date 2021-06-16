@@ -225,7 +225,7 @@
 // }
 
 .footer {
-  padding: 115px 0;
+  padding: 76px 0;
   background-color: #005c97;
   color: #fff;
 
@@ -233,15 +233,54 @@
     margin: 0;
   }
 
+  &__logo img {
+    width: 100%;
+    max-width: 224px;
+  }
+
+  &__links {
+    padding-top: 30px;
+  }
+
+  &__category {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin:0;
+    }
+
+    ul li a {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  &__copyright {
+    padding-top: 40px;
+  }
+
+  // Right part
+
   &__contact-header {
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
-    padding-bottom: 90px;
+    padding-bottom: 56px;
   }
 
   &__contact-address {
     font-size: 18px;
-    padding-bottom: 80px;
+    padding-bottom: 56px;
+  }
+
+  &__social-link{
+    margin-right: 22px;
+  }
+
+  &__social-link img {
+    width: 100%;
+    max-width: 28px;
   }
 }

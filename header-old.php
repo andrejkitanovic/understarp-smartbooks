@@ -15,21 +15,6 @@ $container = get_theme_mod('understrap_container_type');
 
 $header_logo = get_field('header_logo', 'options');
 
-// $header_background = get_field('header_background', 'options');
-// $bgType  = $header_background['type'];
-// $bgColor = $header_background['color'];
-// $bgImage = $header_background['image'];
-// $bgStyle = '';
-
-// if ($bgType) {
-//     if ($bgType == 'colored') {
-//         $bgStyle = 'background-color: ' . $bgColor  . ';';
-//     }
-//     if ($bgType == 'image') {
-//         $bgStyle = 'background-image: url(' . $bgImage . ');';
-//     }
-// }
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -69,16 +54,16 @@ $header_logo = get_field('header_logo', 'options');
     <div class="site" id="page">
 
         <!-- ******************* The Navbar Area ******************* -->
-        <header>
-
-            <div class="header-top">
-                <span class="header-top__text">SmartBooks wrote the book on Small Business Finance - Literally!</span>
-                <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="header-top__btn">Learn More</a>
+        <header class="header" id="wrapper-navbar">
+            <div class="ticker">
+                <span class="ticker__text">SmartBooks wrote the book on Small Business Finance - Literally!</span>
+                <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="ticker__btn  btn">Learn More</a>
             </div>
+            <nav class="navbar navbar--ticker fixed-top navbar-expand-lg">
 
-            <nav class="header">
-
-                <div class="container">
+                <?php if ('container' == $container) : ?>
+                    <div class="container">
+                    <?php endif; ?>
 
                     <a href="<?php echo home_url(); ?>" class="header__logo" rel="home">
                         <?php if ($header_logo) : ?>
@@ -86,10 +71,10 @@ $header_logo = get_field('header_logo', 'options');
                         <?php endif; ?>
                     </a>
 
-                    <!-- <button class="navbar-toggler bg-primary navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="
-	                        <?php esc_attr_e('Toggle navigation', 'understrap'); ?>">
+                    <button class="navbar-toggler bg-primary navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="
+	<?php esc_attr_e('Toggle navigation', 'understrap'); ?>">
                         <span class="navbar-toggler-icon"></span>
-                    </button> -->
+                    </button>
 
                     <!-- The WordPress Menu goes here -->
                     <?php wp_nav_menu(
@@ -105,9 +90,9 @@ $header_logo = get_field('header_logo', 'options');
                         )
                     ); ?>
 
-
-                </div>
-
+                    <?php if ('container' == $container) : ?>
+                    </div><!-- .container -->
+                <?php endif; ?>
 
             </nav><!-- .site-navigation -->
 
