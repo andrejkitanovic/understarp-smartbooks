@@ -30,9 +30,9 @@ if ($bgType) {
 $textStyle = '';
 $textAlignment = get_field('text_alignment');
 
-if ($textAlignment) {
-    $textStyle = 'text-align:' . $textAlignment . ';';
-}
+// * |--\--> Block text color
+
+$textColor = get_field('text_color');
 
 //  * |---|--> Block padding
 
@@ -40,6 +40,14 @@ $padding = get_field('padding');
 
 if ($padding) {
     $blockClass .= ' padding-' . $padding;
+}
+
+if ($textAlignment) {
+    $textStyle .= 'text-align:' . $textAlignment . ';';
+}
+
+if ($textColor) {
+    $textStyle .= 'color:' . $textColor . ';';
 }
 
 if ($bgStyle) {
@@ -80,19 +88,33 @@ $order = get_field('order');
 // ? HEADING
 
 $heading = get_field('heading');
+
 if ($heading) {
-    $headingClass = $block . '__heading';
+    $headingClass = $block . '__heading heading';
     $headingSize = $heading['size'];
     $headingColor = $heading['color'];
     $headingText = $heading['text'];
 }
 
-
 $headingStyle = 'color:' . $headingColor . ';';
 
-// ? TEXT
+// ? DESCRIPTION
 
-$text = get_field('text');
+$description = get_field('description');
+
+// ? BUTTON
+
+$button = get_field('button');
+$buttonStyle = '';
+$buttonTitle = '';
+$buttonLink = '';
+
+if ($button && $button['link']) {
+    $buttonStyle = 'background-color: ' . $button['color']  . ';';
+    $buttonTitle = $button['link']['title'];
+    $buttonLink = $button['link']['url'];
+}
+
 
 // ? IMAGE
 
@@ -102,6 +124,22 @@ $imageAlignment = get_field('image_alignment');
 
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<?php createHeaderElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+<div class="container">
+    <div class="row <?php if ($order === 'right') {
+                        echo 'flex-row-reverse';
+                    } ?>">
+        <div class="col-<?php echo $firstCol; ?>">
+            <!-- Heading -->
+            <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+            <!-- Description -->
+            <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+            <!-- Button -->
+            <?php createLinkElement(generateClass($block, '__button button'), $buttonStyle, $buttonTitle, $buttonLink); ?>
+        </div>
+        <div class="col-<?php echo $secondCol; ?>">
 
+
+        </div>
+    </div>
+</div>
 </section>

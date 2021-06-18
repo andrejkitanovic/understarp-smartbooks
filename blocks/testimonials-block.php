@@ -5,6 +5,10 @@
 $block = 'testimonials';
 $blockClass = $block;
 
+//  * |-- Block styling
+
+$blockStyle = '';
+
 //  * |---|--> Block background
 
 $bgType  = get_field('background_type');
@@ -26,9 +30,9 @@ if ($bgType) {
 $textStyle = '';
 $textAlignment = get_field('text_alignment');
 
-if ($textAlignment) {
-    $textStyle = 'text-align:' . $textAlignment . ';';
-}
+// * |--\--> Block text color
+
+$textColor = get_field('text_color');
 
 //  * |---|--> Block padding
 
@@ -41,6 +45,15 @@ if ($padding) {
 if ($bgStyle) {
     $blockStyle .= $bgStyle;
 }
+
+if ($textAlignment) {
+    $textStyle .= 'text-align:' . $textAlignment . ';';
+}
+
+if ($textColor) {
+    $textStyle .= 'color:' . $textColor . ';';
+}
+
 if ($textStyle) {
     $blockStyle .= $textStyle;
 }
@@ -48,7 +61,7 @@ if ($textStyle) {
 // ? HEADING
 
 $heading = get_field('heading');
-$headingClass = $block . '__heading';
+$headingClass = $block . '__heading heading';
 $headingSize = $heading['size'];
 $headingColor = $heading['color'];
 $headingText = $heading['text'];
@@ -62,6 +75,9 @@ $slides = get_field('slides');
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<?php createHeaderElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+<div class="container">
+    <!-- Heading -->
+    <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 
+</div>
 </section>

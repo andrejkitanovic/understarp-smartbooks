@@ -30,13 +30,21 @@ if ($bgType) {
 $textStyle = '';
 $textAlignment = get_field('text_alignment');
 
-if ($textAlignment) {
-    $textStyle = 'text-align:' . $textAlignment . ';';
-}
+// * |--\--> Block text color
+
+$textColor = get_field('text_color');
 
 //  * |---|--> Block padding
 
 $padding = get_field('padding');
+
+if ($textAlignment) {
+    $textStyle .= 'text-align:' . $textAlignment . ';';
+}
+
+if ($textColor) {
+    $textStyle .= 'color:' . $textColor . ';';
+}
 
 if ($padding) {
     $blockClass .= ' padding-' . $padding;
@@ -52,28 +60,48 @@ if ($textStyle) {
 // ? LABEL
 
 $label = get_field('label');
-$labelClass = $block . '__label';
-$labelSize = $label['size'];
-$labelColor = $label['color'];
-$labelText = $label['text'];
 
-$headingStyle = 'color:' . $headingColor . ';';
+if ($label) {
+    $labelClass = $block . '__label';
+    $labelColor = $label['color'];
+    $labelText = $label['text'];
+}
+
+$labelStyle = 'color:' . $labelColor . ';';
 
 // ? HEADING
 
 $heading = get_field('heading');
-$headingClass = $block . '__heading';
-$headingSize = $heading['size'];
-$headingColor = $heading['color'];
-$headingText = $heading['text'];
+
+if ($heading) {
+    $headingClass = $block . '__heading heading';
+    $headingSize = $heading['size'];
+    $headingColor = $heading['color'];
+    $headingText = $heading['text'];
+}
 
 $headingStyle = 'color:' . $headingColor . ';';
 
-// ? TEXT
+// ? DESCRIPTION
 
-$text = get_field('text');
+$description = get_field('description');
 
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+            <!-- Label -->
+            <?php createTextElement($labelClass, 'p', $labelStyle, $labelText); ?>
+            <!-- Heading -->
+            <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+            <!-- Description -->
+            <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+        </div>
+    </div>
+</div>
 </section>

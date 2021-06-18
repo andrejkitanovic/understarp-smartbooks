@@ -1,20 +1,36 @@
 <?php
 
-function initializeSection($class, $style)
+function initializeSection($class = '', $style = '')
 {
-    echo '<section class="' . $class . '" style="' . $style . '">';
+    echo '<section class="' . $class . ' new-container" style="' . $style . '">';
 }
 
-function createHeaderElement($class, $size, $style, $text)
+function createTextElement($class = '', $size = 'p', $style = '', $text = '')
 {
     if ($text) {
-        echo '<' . $size . ' class:"' . $class . '" style:"' . $style . '">' . $text . '</' . $size . '>';
+        echo '<' . $size . ' class="' . $class . '" style="' . $style . '">' . $text . '</' . $size . '>';
     }
 }
 
-function createTextElement($class, $text)
+function createLinkElement($class = '', $style = '', $text = '', $href = '#')
 {
     if ($text) {
-        echo '<p class:"' . $class . '__text">' . $text . '</p>';
+        echo '<a href="' . $href . '" class="' . $class . '" style="' . $style . '">' . $text . '</a>';
     }
+}
+
+function createImageElement($class = '', $image = '', $alt = ''){
+    if ($image) {
+        echo '<div class="' . $class . '" style="background-image: url(' . $image . ')" alt="' . $alt . '"></div>';
+    }
+}
+
+function generateClass($class = '', $addon = '')
+{
+    return $class . $addon;
+}
+
+function filterDisplayed($arr)
+{
+    return array_filter($arr, function($el){ return $el['display'] == true; });
 }

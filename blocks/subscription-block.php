@@ -30,9 +30,9 @@ if ($bgType) {
 $textStyle = '';
 $textAlignment = get_field('text_alignment');
 
-if ($textAlignment) {
-    $textStyle = 'text-align:' . $textAlignment . ';';
-}
+// * |--\--> Block text color
+
+$textColor = get_field('text_color');
 
 //  * |---|--> Block padding
 
@@ -42,6 +42,14 @@ if ($padding) {
     $blockClass .= ' padding-' . $padding;
 }
 
+if ($textAlignment) {
+    $textStyle .= 'text-align:' . $textAlignment . ';';
+}
+
+if ($textColor) {
+    $textStyle .= 'color:' . $textColor . ';';
+}
+
 if ($bgStyle) {
     $blockStyle .= $bgStyle;
 }
@@ -49,4 +57,30 @@ if ($textStyle) {
     $blockStyle .= $textStyle;
 }
 
+// ? HEADING
+
+$heading = get_field('heading');
+
+if ($heading) {
+    $headingClass = $block . '__heading heading';
+    $headingSize = $heading['size'];
+    $headingColor = $heading['color'];
+    $headingText = $heading['text'];
+}
+
+$headingStyle = 'color:' . $headingColor . ';';
+
+// ? DESCRIPTION
+
+$description = get_field('description');
+
 ?>
+
+<?php initializeSection($blockClass, $blockStyle) ?>
+<div class="container">
+    <!-- Heading -->
+    <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+     <!-- Description -->
+     <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+</div>
+</section>

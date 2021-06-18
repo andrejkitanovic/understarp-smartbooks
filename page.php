@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages.
  *
@@ -11,17 +12,17 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 
-$container = get_theme_mod( 'understrap_container_type' );
+$container = get_theme_mod('understrap_container_type');
 
 ?>
 
 <div class="wrapper wrapper--ticker" id="page-wrapper">
-
-		<?php get_template_part( 'template-parts/page-builder' ); ?>
+	<?php the_content(); ?>
+	<?php get_template_part('template-parts/page-builder'); ?>
 
 </div>
 

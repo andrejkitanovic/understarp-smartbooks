@@ -74,6 +74,16 @@ $acfBlocks[] = array(
     'keywords'		=> array( 'subscription' )
 );
 
+$acfBlocks[] = array(
+    'name'			=> 'list-icon',
+    'title'			=> __( 'List Icon' ),
+    'render_template'   => get_template_directory() . '/blocks/list-icon-block.php',
+    'category'		=> 'blocks',
+    'icon'			=> 'welcome-widgets-menus',
+    'mode'			=> 'edit',
+    'keywords'		=> array( 'list', 'icon' )
+);
+
 
 
 /** Limit to our custom ACF-Gutenberg blocks only */

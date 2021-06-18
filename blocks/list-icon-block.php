@@ -2,10 +2,10 @@
 
 // ? BLOCK
 
-$block = 'multi-column';
+$block = 'list-icon';
 $blockClass = $block;
 
-//  * |-- Block styling
+//  * |--> Block styling
 
 $blockStyle = '';
 
@@ -38,16 +38,16 @@ $textColor = get_field('text_color');
 
 $padding = get_field('padding');
 
+if ($padding) {
+    $blockClass .= ' padding-' . $padding;
+}
+
 if ($textAlignment) {
     $textStyle .= 'text-align:' . $textAlignment . ';';
 }
 
 if ($textColor) {
     $textStyle .= 'color:' . $textColor . ';';
-}
-
-if ($padding) {
-    $blockClass .= ' padding-' . $padding;
 }
 
 if ($bgStyle) {
@@ -57,35 +57,19 @@ if ($textStyle) {
     $blockStyle .= $textStyle;
 }
 
-// ? HEADING
+// ? TEXT
 
-$heading = get_field('heading');
-$headingSize = $heading['size'];
-$headingColor = $heading['color'];
-$headingText = $heading['text'];
+$text = get_field('text');
+$textClass = $block . '__text text';
 
-$headingStyle = 'color:' . $headingColor . ';';
+// ? IMAGES
 
-// ? DESCRIPTION
-
-$description = get_field('description');
-
-// ? COLUMNS
-
-$columns = get_field('columns');
-if ($columns) {
-    $numberOfColumns = count($columns);
-}
-
+$images = get_field('images');
 ?>
-
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 <div class="container">
-    <!-- Heading -->
-    <?php createTextElement(generateClass($block, '__heading heading'), $headingSize, $headingStyle, $headingText); ?>
-    <!-- Description -->
-    <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
-    
+    <!-- Text -->
+    <?php createTextElement(generateClass($block, '__text text'), 'p', '', $text); ?>
 </div>
 </section>

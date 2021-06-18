@@ -72,12 +72,13 @@ $header_logo = get_field('header_logo', 'options');
         <header>
 
             <div class="header-top">
-                <span class="header-top__text">SmartBooks wrote the book on Small Business Finance - Literally!</span>
-                <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="header-top__btn">Learn More</a>
+                <div class="container">
+                    <span class="header-top__text">SmartBooks wrote the book on Small Business Finance - Literally!</span>
+                    <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="header-top__btn">Learn More</a>
+                </div>
             </div>
 
             <nav class="header">
-
                 <div class="container">
 
                     <a href="<?php echo home_url(); ?>" class="header__logo" rel="home">
@@ -107,8 +108,6 @@ $header_logo = get_field('header_logo', 'options');
 
 
                 </div>
-
-
             </nav><!-- .site-navigation -->
 
         </header><!-- #wrapper-navbar end -->

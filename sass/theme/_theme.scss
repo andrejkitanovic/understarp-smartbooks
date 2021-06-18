@@ -1,35 +1,35 @@
 @font-face {
-  font-family: 'Work Sans';
-  src: url('../fonts/WorkSans-SemiBold.ttf') format('truetype'),
-  url('../fonts/WorkSans-SemiBold.woff2') format('woff2'),
-  url('../fonts/WorkSans-SemiBold.woff') format('woff');
+  font-family: "Work Sans";
+  src: url("../fonts/WorkSans-SemiBold.ttf") format("truetype"),
+    url("../fonts/WorkSans-SemiBold.woff2") format("woff2"),
+    url("../fonts/WorkSans-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Work Sans';
-  src: url('../fonts/WorkSans-Light.ttf') format('truetype'),
-  url('../fonts/WorkSans-Light.woff2') format('woff2'),
-  url('../fonts/WorkSans-Light.woff') format('woff');
+  font-family: "Work Sans";
+  src: url("../fonts/WorkSans-Light.ttf") format("truetype"),
+    url("../fonts/WorkSans-Light.woff2") format("woff2"),
+    url("../fonts/WorkSans-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Work Sans';
-  src: url('../fonts/WorkSans-Regular.ttf') format('truetype'),
-  url('../fonts/WorkSans-Regular.woff2') format('woff2'),
-  url('../fonts/WorkSans-Regular.woff') format('woff');
+  font-family: "Work Sans";
+  src: url("../fonts/WorkSans-Regular.ttf") format("truetype"),
+    url("../fonts/WorkSans-Regular.woff2") format("woff2"),
+    url("../fonts/WorkSans-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 .wrapper {
@@ -53,10 +53,10 @@ body {
   &:hover {
     color: #fff;
     //background-color: #c3560e !important;
-    filter: brightness(.7);
+    filter: brightness(0.7);
   }
 
-  @media(min-width: 576px) {
+  @media (min-width: 576px) {
     font-size: 20px;
     padding: 7px 30px;
   }
@@ -72,12 +72,96 @@ body {
   }
 }
 
-
 // Hubspot
 
-@media (max-width: 400px), (max-device-width: 480px) and (min-device-width: 320px) {
+@media (max-width: 400px),
+  (max-device-width: 480px) and (min-device-width: 320px) {
   form .form-columns-2 .hs-form-field .hs-input,
   form .form-columns-3 .hs-form-field .hs-input {
     width: 100% !important;
+  }
+}
+
+// Newly added
+
+.new-container {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  h1,
+  .h1 {
+    @include font-size($font-size-base * 3.1);
+  }
+  h2,
+  .h2 {
+    @include font-size($font-size-base * 2.8);
+  }
+  h3,
+  .h3 {
+    @include font-size($font-size-base * 2.5);
+  }
+  h4,
+  .h4 {
+    @include font-size($font-size-base * 2.3);
+  }
+  h5,
+  .h5 {
+    @include font-size($font-size-base * 2.1);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .label{
+    font-size: 30px;
+    line-height: 58px;
+    font-weight: bold;
+  }
+
+  .heading {
+    margin-bottom: 40px;
+    text-transform: capitalize;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 40px;
+  }
+
+  .button{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    padding:10px 18px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  
+}
+
+.padding {
+  &-small {
+    padding: 40px 0;
+  }
+
+  &-medium {
+    padding: 80px 0;
+  }
+
+  &-big {
+    padding: 120px 0;
   }
 }
