@@ -62,14 +62,24 @@ if ($textStyle) {
 $text = get_field('text');
 $textClass = $block . '__text text';
 
-// ? IMAGES
+// ? ICONS
 
-$images = get_field('images');
+$icons = filterDisplayed(get_field('icons'));
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 <div class="container">
     <!-- Text -->
     <?php createTextElement(generateClass($block, '__text text'), 'p', '', $text); ?>
+
+    <div class="row justify-content-center">
+        <?php foreach ($icons as $icon) { ?>
+            <div class="<?php echo generateClass($block, '__icon-holder'); ?> ">
+                <!-- Icon -->
+                <?php createImageElement(generateClass($block, '__icon'), $icon['icon']['url'], $icon['icon']['title']); ?>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 </section>

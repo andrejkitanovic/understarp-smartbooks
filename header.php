@@ -30,6 +30,8 @@ $header_logo = get_field('header_logo', 'options');
 //     }
 // }
 
+$scrollToTopIcon = get_field('scroll_to_top_icon', 'options');
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -74,40 +76,32 @@ $header_logo = get_field('header_logo', 'options');
             <div class="header-top">
                 <div class="container">
                     <span class="header-top__text">SmartBooks wrote the book on Small Business Finance - Literally!</span>
-                    <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="header-top__btn">Learn More</a>
+                    <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="header-top__btn button">Learn More</a>
                 </div>
             </div>
 
             <nav class="header">
                 <div class="container">
+                    <div class="row">
 
-                    <a href="<?php echo home_url(); ?>" class="header__logo" rel="home">
-                        <?php if ($header_logo) : ?>
-                            <img src="<?php echo $header_logo['url']; ?>" alt="<?php echo $header_logo['alt']; ?>">
-                        <?php endif; ?>
-                    </a>
+                        <a href="<?php echo home_url(); ?>" class="header__logo" rel="home">
+                            <?php if ($header_logo) : ?>
+                                <img src="<?php echo $header_logo['url']; ?>" alt="<?php echo $header_logo['alt']; ?>">
+                            <?php endif; ?>
+                        </a>
 
-                    <!-- <button class="navbar-toggler bg-primary navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="
-	                        <?php esc_attr_e('Toggle navigation', 'understrap'); ?>">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
+                        <button class="header__hamburger d-block d-xl-none">
 
-                    <!-- The WordPress Menu goes here -->
-                    <?php wp_nav_menu(
-                        array(
-                            'theme_location'  => 'primary',
-                            'container_class' => 'collapse navbar-collapse',
-                            'container_id'    => 'navbarNavDropdown',
-                            'menu_class'      => 'navbar-nav ml-auto header__nav',
-                            'fallback_cb'     => '',
-                            'menu_id'         => 'main-menu',
-                            'depth'           => 2,
-                            'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-                        )
-                    ); ?>
+                        </button>
 
+                        <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
+                    </div>
 
                 </div>
             </nav><!-- .site-navigation -->
 
         </header><!-- #wrapper-navbar end -->
+
+        <div class="scroll-to-top" style="background-image:url('<?php echo $scrollToTopIcon['url'] ?>'); ">
+
+        </div>

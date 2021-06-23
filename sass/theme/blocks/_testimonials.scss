@@ -1,0 +1,42 @@
+.testimonials {
+  &__slider {
+    width: 100%;
+    height: 300px;
+    display: block;
+    margin-top: 60px;
+
+    &.swiper-container {
+      // overflow: visible;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+    }
+  }
+
+  &__slide {
+    text-align: left;
+    padding: 30px;
+    width: 495px;
+    height: 293px;
+    background: #f6fcfd;
+    box-shadow: 0 5px 15px #0000000a;
+  }
+
+  &__slide-icon {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+
+  &__slide-name {
+    font-weight: 600;
+    padding-top: 30px;
+  }
+
+  &__slide-review {
+    margin-top: 20px !important;
+  }
+}

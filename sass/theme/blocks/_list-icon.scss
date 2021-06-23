@@ -1,0 +1,14 @@
+.list-icon {
+  &__text {
+    font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 14px;
+  }
+
+  &__icon-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 30px;
+  }
+}

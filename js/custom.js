@@ -1,5 +1,6 @@
-jQuery(document).ready(function ($) {
 
+
+jQuery(document).ready(function ($) {
     // Wrap for menu items
     $('.header__nav > li:not(:last-child) > a').html(function () {
         var text = $(this).text().split(' ');
@@ -217,6 +218,5 @@ jQuery(document).ready(function ($) {
     $('.dropdown-menu a.dropdown-item').click(function () {
         $('#navbarNavDropdown').removeClass('show');
     })
-
 
 });

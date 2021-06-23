@@ -60,9 +60,12 @@ if ($textStyle) {
 // ? LABEL
 
 $label = get_field('label');
+$labelClass = '';
+$labelColor = '';
+$labelText = '';
 
 if ($label) {
-    $labelClass = $block . '__label';
+    $labelClass = $block . '__label label';
     $labelColor = $label['color'];
     $labelText = $label['text'];
 }
@@ -86,22 +89,60 @@ $headingStyle = 'color:' . $headingColor . ';';
 
 $description = get_field('description');
 
+// ? CLENDAR
+
+$calendar = get_field('calendar');
+
+// ? IMAGE
+
+$image = get_field('image');
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
+
+
 <div class="container">
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-xl-6">
 
         </div>
-        <div class="col-6">
+        <div class="col-12 col-xl-6">
             <!-- Label -->
             <?php createTextElement($labelClass, 'p', $labelStyle, $labelText); ?>
             <!-- Heading -->
             <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
             <!-- Description -->
             <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+
+            <!-- Calendar -->
+            <?php createDivElement(generateClass($block, '__calendar'), '', $calendar); ?>
+
         </div>
     </div>
 </div>
+
+<div class="<?php echo generateClass($block, '__images'); ?>">
+    <!-- Image -->
+    <?php
+    createDivImageElement(generateClass($block, '__image'), $image['url'], '', '');
+    ?>
+
+</div>
+
+
+<script>
+    let initialized = false;
+    let intersectionObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].intersectionRatio <= 0) return;
+
+        if (!initialized) {
+            let calendarHolder = document.querySelector(".<?php echo generateClass($block, '__calendar') ?>");
+            // calendarHolder.innerHTML = '';
+            initialized = true;
+        }
+    });
+
+    intersectionObserver.observe(document.querySelector(".consultation"));
+</script>
 </section>

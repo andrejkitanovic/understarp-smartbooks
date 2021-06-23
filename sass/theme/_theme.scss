@@ -41,6 +41,25 @@ body {
   }
 }
 
+@media (max-width: breakpoint(xl)) {
+  .wrapper {
+
+    &--ticker {
+      padding-top: 190px;
+    }
+  }
+}
+
+@media (max-width: breakpoint(sm)) {
+  .wrapper {
+
+    &--ticker {
+      padding-top: 150px;
+    }
+  }
+}
+
+
 .btn {
   color: #fff;
   font-weight: 300;
@@ -79,89 +98,5 @@ body {
   form .form-columns-2 .hs-form-field .hs-input,
   form .form-columns-3 .hs-form-field .hs-input {
     width: 100% !important;
-  }
-}
-
-// Newly added
-
-.new-container {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 700;
-    margin: 0;
-  }
-
-  h1,
-  .h1 {
-    @include font-size($font-size-base * 3.1);
-  }
-  h2,
-  .h2 {
-    @include font-size($font-size-base * 2.8);
-  }
-  h3,
-  .h3 {
-    @include font-size($font-size-base * 2.5);
-  }
-  h4,
-  .h4 {
-    @include font-size($font-size-base * 2.3);
-  }
-  h5,
-  .h5 {
-    @include font-size($font-size-base * 2.1);
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .label{
-    font-size: 30px;
-    line-height: 58px;
-    font-weight: bold;
-  }
-
-  .heading {
-    margin-bottom: 40px;
-    text-transform: capitalize;
-  }
-
-  .description {
-    font-size: 18px;
-    line-height: 25px;
-    margin-bottom: 40px;
-  }
-
-  .button{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    color:#fff;
-    padding:10px 18px;
-    font-size: 18px;
-    line-height: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  
-}
-
-.padding {
-  &-small {
-    padding: 40px 0;
-  }
-
-  &-medium {
-    padding: 80px 0;
-  }
-
-  &-big {
-    padding: 120px 0;
   }
 }

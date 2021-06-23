@@ -45,7 +45,7 @@ $social_links = get_field('social_links', 'options');
     <div class="container">
         <div class="footer__main">
             <div class="row">
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-8">
 
                     <a href="<?php echo home_url(); ?>" class="footer__logo">
                         <?php if ($footer_logo) : ?>
@@ -55,10 +55,10 @@ $social_links = get_field('social_links', 'options');
 
                     <div class="footer__links">
                         <div class="row">
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-4 col-lg-3">
                                 <?php if (has_nav_menu('footer')) wp_nav_menu(array('theme_location' => 'footer', 'container_class' => 'footer__category')); ?>
                             </div>
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-4 col-lg-3">
                                 <?php if (has_nav_menu('footer_links')) wp_nav_menu(array('theme_location' => 'footer_links', 'container_class' => 'footer__category')); ?>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ $social_links = get_field('social_links', 'options');
                     <div class="footer__copyright d-none d-sm-block"><?php echo $footer_copyright; ?></div>
                 </div>
 
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-4">
                     <div class="footer__contact">
 
                         <div class="footer__contact-header">

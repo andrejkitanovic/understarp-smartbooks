@@ -22,6 +22,10 @@ $container = get_theme_mod('understrap_container_type');
 
 <div class="wrapper wrapper--ticker" id="page-wrapper">
 	<?php the_content(); ?>
+	<?php while (have_posts()) {
+		the_post();
+		the_content();
+	} ?>
 	<?php get_template_part('template-parts/page-builder'); ?>
 
 </div>

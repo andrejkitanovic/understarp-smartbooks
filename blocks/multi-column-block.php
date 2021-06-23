@@ -5,7 +5,7 @@
 $block = 'multi-column';
 $blockClass = $block;
 
-//  * |-- Block styling
+//  * |--> Block styling
 
 $blockStyle = '';
 
@@ -72,10 +72,34 @@ $description = get_field('description');
 
 // ? COLUMNS
 
-$columns = get_field('columns');
+$columns = filterDisplayed(get_field('columns'));
+$colSize = 12;
+
 if ($columns) {
-    $numberOfColumns = count($columns);
+    if (count($columns) < 4) {
+        $colSize = round(12 / count($columns));
+    }else $colSize = 3;
 }
+
+$columnsClass = generateClass($block, '__columns');
+
+
+//  * |--> Columns styling
+
+$columnStylingField = get_field('column_styling');
+$columnType  = $columnStylingField['column_type'];
+$columnBackground = $columnStylingField['column_background'];
+$columnTitleColor = $columnStylingField['column_title_color'];
+$columnStyle = '';
+
+if ($columnType) {
+    if ($columnType == 'boxed') {
+        $columnStyle = 'background-color: ' . $columnBackground  . ';';
+        $columnsClass .= ' boxed';
+    }
+}
+
+$columnTitleStyle = 'color: ' . $columnTitleColor  . ';';
 
 ?>
 
@@ -86,6 +110,34 @@ if ($columns) {
     <?php createTextElement(generateClass($block, '__heading heading'), $headingSize, $headingStyle, $headingText); ?>
     <!-- Description -->
     <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
-    
+
+    <div class="<?php echo $columnsClass; ?>">
+        <div class="row">
+            <?php foreach ($columns as $column) { ?>
+                <div class="col-12 col-md-6 col-lg-<?php echo $colSize; ?>">
+                    <div class="<?php echo generateClass($block, '__column'); ?>">
+                        <!-- Background -->
+                        <div class="<?php echo generateClass($block, '__column-background') ?>" style="<?php echo $columnStyle; ?>"></div>
+                        <!-- Icon -->
+                        <?php
+                        $icon = '';
+                        $alt = '';
+
+                        if ($column['icon']) {
+                            $icon = $column['icon']['url'];
+                            $alt = $column['icon']['title'];
+                        }
+                        createImageElement(generateClass($block, '__column-icon'), $icon, $alt);
+                        ?>
+                        <!-- Column Title -->
+                        <?php createTextElement(generateClass($block, '__column-title'), 'p', $columnTitleStyle, $column['title']); ?>
+                        <!-- Column Description -->
+                        <?php createTextElement(generateClass($block, '__column-description'), 'p', '', $column['description']); ?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
 </div>
 </section>

@@ -80,7 +80,12 @@ $description = get_field('description');
 <div class="container">
     <!-- Heading -->
     <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
-     <!-- Description -->
-     <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+    <!-- Description -->
+    <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+    <!-- Subscription -->
+    <div class="<?php echo generateClass($block, '__form') ?>">
+        <?php gravity_form('New Subscribe', false, false, false, false, true, 1, true); ?>
+    </div>
+
 </div>
 </section>

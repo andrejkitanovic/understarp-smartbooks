@@ -1,0 +1,11 @@
+.basic-content {
+  $parent: &;
+
+  img#{$parent}__image,
+  &__image img {
+    margin: 15px 20px;
+    width: 240px;
+    height: 80px;
+    object-fit: contain;
+  }
+}

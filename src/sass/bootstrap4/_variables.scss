@@ -205,9 +205,12 @@ $grid-breakpoints: (
 // Define the maximum width of `.container` for different screen sizes.
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
-  lg: 960px,
+  // sm: 540px,
+  // md: 720px,
+  // lg: 960px,
+  sm: 950px,
+  // md: 950px,
+  // lg: 950px,
   xl: 1140px
 ) !default;
 
@@ -1121,3 +1124,12 @@ $positions: static, relative, absolute, fixed, sticky !default;
 
 $print-page-size:                   a3 !default;
 $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function breakpoint($key) {
+  $bp: strip-unit(map-get($grid-breakpoints, $key));
+  @return #{$bp - 1}px;
+}

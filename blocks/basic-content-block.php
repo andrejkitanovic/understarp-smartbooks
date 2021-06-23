@@ -77,7 +77,8 @@ $descriptionClass = $block . '__description description';
 
 // ? IMAGES
 
-$images = get_field('images');
+$images = filterDisplayed(get_field('images'));
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
@@ -86,6 +87,15 @@ $images = get_field('images');
     <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
     <!-- Description -->
     <?php createTextElement($descriptionClass, 'p', '', $description); ?>
+
+    <div class="row justify-content-center">
+        <?php foreach ($images as $image) { ?>
+            <div class="<?php echo generateClass($block, '__image-holder'); ?> ">
+                <!-- Image -->
+                <?php createImageElement(generateClass($block, '__image'), $image['image']['url'], $image['image']['title']); ?>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 
 </section>

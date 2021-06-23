@@ -120,6 +120,25 @@ if ($button && $button['link']) {
 
 $image = get_field('image');
 $imageAlignment = get_field('image_alignment');
+
+// ? MEDIA
+
+$mediaField = get_field('media');
+$mediaType = $mediaField['media_type'];
+
+$media = '';
+$mediaClass = '';
+
+if ($mediaField) {
+    if ($mediaType === 'image') {
+        $media = $mediaField['image'];
+        $mediaClass = $mediaField['image_position'];
+    } else if ($mediaType === 'video') {
+        $media = $mediaField['video'];
+    }
+}
+
+
 ?>
 
 
@@ -128,17 +147,25 @@ $imageAlignment = get_field('image_alignment');
     <div class="row <?php if ($order === 'right') {
                         echo 'flex-row-reverse';
                     } ?>">
-        <div class="col-<?php echo $firstCol; ?>">
+        <div class="col-12 col-xl-<?php echo $firstCol; ?>">
             <!-- Heading -->
             <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
             <!-- Description -->
-            <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
+            <?php createDivElement(generateClass($block, '__description description'), '', $description); ?>
             <!-- Button -->
             <?php createLinkElement(generateClass($block, '__button button'), $buttonStyle, $buttonTitle, $buttonLink); ?>
         </div>
-        <div class="col-<?php echo $secondCol; ?>">
-
-
+        <div class="col-12 col-xl-<?php echo $secondCol; ?>" style="position: static;">
+            <div class="<?php echo generateClass($block, '__media'); ?>">
+                <!-- Media -->
+                <?php
+                if ($mediaType === 'video' && $media) {
+                    createDivElement(generateClass($block, '__video'), '', $media);
+                } else if ($mediaType === 'image' && $media) {
+                    createDivImageElement(generateClass($block, '__image') . ' ' . $mediaClass, $media['url'], '', '');
+                }
+                ?>
+            </div>
         </div>
     </div>
 </div>

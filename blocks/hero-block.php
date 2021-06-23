@@ -32,6 +32,11 @@ if ($bgStyle) {
 // ? HEADING
 
 $heading = get_field('heading');
+
+if ($heading && $heading['marked_word']) {
+    $heading = str_replace($heading['marked_word'], '<span style="color:' . $heading['marked_color'] . '">' . $heading['marked_word'] . '</span>', $heading);
+}
+
 $headingStyle = '';
 
 $headingStyle = 'color: ' . $heading['color']  . ';';
@@ -65,8 +70,8 @@ if ($button && $button['link']) {
 
 <div class="container">
     <div class="row">
-        <div class="col-6">
-            <div class="hero__content">
+        <div class="col-12 col-xl-6">
+            <div class="<?php echo generateClass($block, '__content'); ?>">
                 <!-- Heading -->
                 <?php createTextElement(generateClass($block, '__heading heading'), 'h1', $headingStyle, $heading['text']); ?>
                 <!-- Description -->
@@ -79,10 +84,18 @@ if ($button && $button['link']) {
 </div>
 
 <!-- Images -->
-<div class="hero__images">
+<div class="<?php echo generateClass($block, '__images'); ?>" data-interval="<?php echo $slidesInterval; ?>">
     <?php foreach ($slides as $key => $slide) { ?>
         <!-- Image -->
-        <?php createImageElement(generateClass($block, '__image'), $slide['image']['url'], $slide['image']['title']); ?>
+        <?php
+        $slideStyle = '';
+
+        if ($key != 0) {
+            $slideStyle = 'display:none;';
+        }
+
+        createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word= ' . $slide['header_word']);
+        ?>
     <?php } ?>
 </div>
 

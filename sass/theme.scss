@@ -9,6 +9,7 @@
 
 // Any additional imported files //
 @import "theme/theme";            // <-------- That's where you can add your own design.
+@import "theme/new-homepage"; 
 
 // Header
 @import "theme/header";
@@ -51,7 +52,14 @@
 @import "theme/components/thank-page";
 
 // Blocks
-@import "theme/components/hero";
+@import "theme/blocks/hero";
+@import "theme/blocks/list-icon";
+@import "theme/blocks/multi-column";
+@import "theme/blocks/basic-content";
+@import "theme/blocks/split-column";
+@import "theme/blocks/consultation";
+@import "theme/blocks/subscription";
+@import "theme/blocks/testimonials";
 
 // Footer
 @import "theme/footer";

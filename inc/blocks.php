@@ -5,6 +5,7 @@ $acfBlocks = array();
 
 /** ACF blocks */
 $acfBlocks[] = array(
+    'id'			=> 'hero',
     'name'			=> 'hero',
     'title'			=> __( 'Hero' ),
     'render_template'   => get_template_directory() . '/blocks/hero-block.php',
@@ -15,6 +16,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'basic-content',
     'name'			=> 'basic-content',
     'title'			=> __( 'Basic Content' ),
     'render_template'   => get_template_directory() . '/blocks/basic-content-block.php',
@@ -25,6 +27,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'split-column',
     'name'			=> 'split-column',
     'title'			=> __( 'Split Column' ),
     'render_template'   => get_template_directory() . '/blocks/split-column-block.php',
@@ -35,6 +38,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'multi-column',
     'name'			=> 'multi-column',
     'title'			=> __( 'Multi Column' ),
     'render_template'   => get_template_directory() . '/blocks/multi-column-block.php',
@@ -45,6 +49,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'testimonials',
     'name'			=> 'testimonials',
     'title'			=> __( 'Testimonials' ),
     'render_template'   => get_template_directory() . '/blocks/testimonials-block.php',
@@ -55,6 +60,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'consultation',
     'name'			=> 'consultation',
     'title'			=> __( 'Consultation' ),
     'render_template'   => get_template_directory() . '/blocks/consultation-block.php',
@@ -65,6 +71,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'subscription',
     'name'			=> 'subscription',
     'title'			=> __( 'Subscription' ),
     'render_template'   => get_template_directory() . '/blocks/subscription-block.php',
@@ -75,6 +82,7 @@ $acfBlocks[] = array(
 );
 
 $acfBlocks[] = array(
+    'id'			=> 'list-icon',
     'name'			=> 'list-icon',
     'title'			=> __( 'List Icon' ),
     'render_template'   => get_template_directory() . '/blocks/list-icon-block.php',
@@ -83,8 +91,6 @@ $acfBlocks[] = array(
     'mode'			=> 'edit',
     'keywords'		=> array( 'list', 'icon' )
 );
-
-
 
 /** Limit to our custom ACF-Gutenberg blocks only */
 add_filter('allowed_block_types', 'limitBlockTypes');
