@@ -51,12 +51,16 @@
     }
 
     &__calendar {
-      // padding-top: 44px;
-      // width: 350px;
-      // height: 452px;
-
       .calendly-inline-widget {
       }
+    }
+  }
+}
+
+@media (max-width: breakpoint(sm)) {
+  .consultation {
+    &__images {
+      height: 350px !important;
     }
   }
 }

@@ -34,7 +34,7 @@ if ($bgStyle) {
 $heading = get_field('heading');
 
 if ($heading && $heading['marked_word']) {
-    $heading = str_replace($heading['marked_word'], '<span style="color:' . $heading['marked_color'] . '">' . $heading['marked_word'] . '</span>', $heading);
+    $heading = str_replace($heading['marked_word'], '<br class="d-block d-md-none"/><span style="color:' . $heading['marked_color'] . '">' . $heading['marked_word'] . '</span>', $heading);
 }
 
 $headingStyle = '';

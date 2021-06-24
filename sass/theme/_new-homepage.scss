@@ -110,13 +110,15 @@ footer {
     align-items: center;
     color: #fff;
     padding: 10px 18px;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 14px;
+    line-height: 18px;
     font-weight: bold;
     text-transform: uppercase;
     z-index: 1;
 
     @media screen and (min-width: breakpoint(md)) {
+      font-size: 18px;
+      line-height: 25px;
     }
 
     &:after {
@@ -144,13 +146,23 @@ footer {
 .padding {
   &-small {
     padding: 40px 0;
+    @media screen and (min-width: breakpoint(md)) {
+      padding: 20px 0;
+    }
   }
 
   &-medium {
     padding: 80px 0;
+    @media screen and (min-width: breakpoint(md)) {
+      padding: 40px 0;
+    }
   }
 
   &-big {
     padding: 120px 0;
+
+    @media screen and (min-width: breakpoint(md)) {
+      padding: 60px 0;
+    }
   }
 }

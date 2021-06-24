@@ -5,6 +5,10 @@
 
     form {
       display: flex;
+
+      @media (max-width: breakpoint(md)) {
+        display: block;
+      }
     }
 
     .gform-body {
