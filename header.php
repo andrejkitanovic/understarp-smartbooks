@@ -90,9 +90,11 @@ $scrollToTopIcon = get_field('scroll_to_top_icon', 'options');
                             <?php endif; ?>
                         </a>
 
-                        <button class="header__hamburger d-block d-xl-none">
-
-                        </button>
+                        <div class="header__hamburger d-block d-xl-none">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
 
                         <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
                     </div>

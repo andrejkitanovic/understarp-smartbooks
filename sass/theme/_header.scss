@@ -124,6 +124,38 @@ header {
   .sub-menu li {
     padding: 3px 0;
   }
+
+  &__hamburger {
+    max-width: 22px;
+    text-align: right;
+
+    span {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #005c9b;
+      margin-bottom: 4px;
+      transition: opacity 0.2s linear, transform 0.2s linear;
+
+      // &:first-of-type {
+      //   top: 6px;
+      //   transform: rotate(45deg);
+      //   transform-origin: center center;
+      // }
+
+      // &:nth-of-type(2) {
+      //   opacity: 0;
+      //   transform: translateX(20%);
+      // }
+
+      // &:last-of-type {
+      //   transform: rotate(-45deg);
+      //   bottom: 6px;
+      //   transform-origin: center center;
+      // }
+    }
+  }
 }
 
 @media (max-width: breakpoint(xl)) {
