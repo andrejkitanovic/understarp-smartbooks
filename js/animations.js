@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
       const scrollToTop = $(".scroll-to-top");
 
       scrollToTop.on("click", () => {
-        $(window).scrollTop(0);
+        $(window).animate({ scrollTop: 0 }, 'slow');
       });
 
       const changeState = (self) => {
@@ -19,10 +19,25 @@ jQuery(document).ready(function ($) {
         }
       };
 
+      const changeScrollToTrigger = (self) => {
+        if (self.isActive) {
+          gsap.to(scrollToTop, {
+            y: 0,
+            autoAlpha: 1,
+          });
+        } else {
+          gsap.to(scrollToTop, {
+            y: 0,
+            autoAlpha: 0,
+          });
+        }
+      };
+
       ScrollTrigger.create({
         start: "top+=250",
         end: document.innerHeight,
         onUpdate: changeState,
+        onToggle: changeScrollToTrigger,
       });
 
       const menuItemWithChildren = $(".menu-item-has-children");
@@ -55,12 +70,11 @@ jQuery(document).ready(function ($) {
 
       const hamburger = $(".header__hamburger");
 
-      console.log("hamburger", hamburger);
-
       if (hamburger.length > 0) {
         $(hamburger).on("click", () => {
           let dropdown = $(".menu-header-menu-container");
 
+          $(hamburger).toggleClass("open")
           $(dropdown).toggleClass("expanded");
         });
       }

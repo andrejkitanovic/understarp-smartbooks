@@ -5,10 +5,6 @@
     display: block;
     margin-top: 60px;
 
-    &.swiper-container {
-      // overflow: visible;
-    }
-
     .swiper-wrapper {
       display: flex;
     }
@@ -24,16 +20,25 @@
   }
 
   &__slide-icon {
-    width: 105px;
-    height: 105px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 20px;
+
+    @media screen and (min-width: breakpoint(md)) {
+      width: 105px;
+      height: 105px;
+    }
   }
 
   &__slide-name {
     font-weight: 600;
-    padding-top: 30px;
+    padding-top: 10px;
+
+    @media screen and (min-width: breakpoint(md)) {
+      padding-top: 30px;
+    }
   }
 
   &__slide-review {

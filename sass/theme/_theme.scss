@@ -37,28 +37,21 @@ body {
   padding-bottom: 0;
 
   &--ticker {
-    padding-top: 161px;
-  }
-}
+    padding-top: 166px;
 
-@media (max-width: breakpoint(xl)) {
-  .wrapper {
+    @media screen and (min-width: breakpoint(sm)) {
+      padding-top: 146px;
+    }
 
-    &--ticker {
-      padding-top: 190px;
+    @media screen and (min-width: breakpoint(xl)) {
+      padding-top: 178px;
+    }
+
+    @media screen and (min-width: 1400px) {
+      padding-top: 162px;
     }
   }
 }
-
-@media (max-width: breakpoint(sm)) {
-  .wrapper {
-
-    &--ticker {
-      padding-top: 150px;
-    }
-  }
-}
-
 
 .btn {
   color: #fff;
