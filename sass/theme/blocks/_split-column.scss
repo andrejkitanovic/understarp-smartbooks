@@ -60,15 +60,9 @@
   }
 }
 
+//TO CHANGE
 @media (max-width: breakpoint(xl)) {
   .split-column {
-    // &__video {
-    //   margin-top: 50px;
-    //   iframe {
-    //     height: 50vw;
-    //   }
-    // }
-
     &__image {
       position: relative;
       top: 0;
@@ -85,19 +79,3 @@
     }
   }
 }
-
-// @media (max-width: breakpoint(md)) {
-//   .split-column {
-//     &__image {
-//       height: 350px !important;
-//     }
-//   }
-// }
-
-// @media (max-width: breakpoint(sm)) {
-//   .split-column {
-//     &__image {
-//       height: 300px !important;
-//     }
-//   }
-// }

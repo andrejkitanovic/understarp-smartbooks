@@ -14,6 +14,7 @@ defined('ABSPATH') || exit;
 $container = get_theme_mod('understrap_container_type');
 
 $header_logo = get_field('header_logo', 'options');
+$header_top = get_field('header_top', 'options');
 
 // $header_background = get_field('header_background', 'options');
 // $bgType  = $header_background['type'];
@@ -73,10 +74,10 @@ $scrollToTopIcon = get_field('scroll_to_top_icon', 'options');
         <!-- ******************* The Navbar Area ******************* -->
         <header>
 
-            <div class="header-top">
+            <div class="header-top" style="background-color:<?php echo $header_top['color'] ?>">
                 <div class="container">
-                    <span class="header-top__text">SmartBooks wrote the book on Small Business Finance - Literally!</span>
-                    <a href="https://smartbooks.com/resources/guides/chapter-1-financial-operating-system/?utm_source=sitebanner&utm_medium=banner&utm_campaign=sitebanner" target="_top" class="header-top__btn button">Learn More</a>
+                    <span class="header-top__text"><?php echo $header_top['text'] ?></span>
+                    <a href="<?php echo $header_top['button']['url'] ?>" target="_top" class="header-top__btn button"><?php echo $header_top['button']['title'] ?></a>
                 </div>
             </div>
 

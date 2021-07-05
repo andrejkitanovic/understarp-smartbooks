@@ -2,7 +2,11 @@
   $parent: &;
 
   &__columns {
-    padding-top: 60px;
+    padding: 25px 20px;
+
+    @media (min-width: breakpoint(sm)) {
+      padding: 60px 0 0;
+    }
   }
 
   &__column {
@@ -33,10 +37,16 @@
   }
 
   &__column-title {
-    height: 80px;
-    font-size: 25px;
-    line-height: 30px;
+    height: 60px;
+    font-size: 20px;
+    line-height: 25px;
     font-weight: bold;
+
+    @media (min-width: breakpoint(xl)) {
+      height: 80px;
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
 
   &__column-description {
@@ -47,42 +57,5 @@
     #{$parent}__column-background {
       display: block;
     }
-  }
-}
-
-@media (max-width: breakpoint(sm)) {
-  .multi-column {
-    $parent: &;
-  
-    &__columns {
-      // padding-top: 60px;
-    }
-  
-    &__column {
-      // max-width: 245px;
-      padding: 25px 20px;
-    }
-  
-    &__column-background {
-    }
-  
-    &__column-icon {
-      // margin: 0 auto 24px;
-  
-      img {
-        // max-height: 80px;
-      }
-    }
-  
-    &__column-title {
-      // height: 80px;
-      // font-size: 25px;
-      // line-height: 30px;
-    }
-  
-    &__column-description {
-      // height: 100px;
-    }
-
   }
 }

@@ -137,8 +137,12 @@ $image = get_field('image');
         if (entries[0].intersectionRatio <= 0) return;
 
         if (!initialized) {
-            let calendarHolder = document.querySelector(".<?php echo generateClass($block, '__calendar') ?>");
-            // calendarHolder.innerHTML = '';
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = "https://assets.calendly.com/assets/external/widget.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+
             initialized = true;
         }
     });

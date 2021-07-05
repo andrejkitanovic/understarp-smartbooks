@@ -68,6 +68,11 @@ $headingText = $heading['text'];
 
 $headingStyle = 'color:' . $headingColor . ';';
 
+// ? DESCRIPTION
+
+$description = get_field('description');
+$descriptionClass = $block . '__description description';
+
 // ? SLIDES
 
 $slides = filterDisplayed(get_field('slides'));
@@ -78,6 +83,8 @@ $slides = filterDisplayed(get_field('slides'));
 <div class="container">
     <!-- Heading -->
     <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+    <!-- Description -->
+    <?php createTextElement($descriptionClass, 'p', '', $description); ?>
 
     <!-- Slider -->
     <div class="<?php echo generateClass($block, '__slider'); ?> swiper-container" data-loop="true" data-autoplay="true" data-interval="3000">

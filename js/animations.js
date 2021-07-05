@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
       const scrollToTop = $(".scroll-to-top");
 
       scrollToTop.on("click", () => {
-        $(window).animate({ scrollTop: 0 }, 'slow');
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
       });
 
       const changeState = (self) => {
@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
 
       ScrollTrigger.create({
         start: "top+=250",
-        end: document.innerHeight,
+        end: document.innerHeight + 500,
         onUpdate: changeState,
         onToggle: changeScrollToTrigger,
       });
