@@ -2,7 +2,7 @@
   $parent: &;
 
   &__columns {
-    padding: 25px 20px;
+    padding: 0 20px;
 
     @media (min-width: breakpoint(sm)) {
       padding:0;
@@ -10,6 +10,7 @@
   }
 
   &__column {
+    display:block;
     position: relative;
     max-width: 245px;
     padding: 45px 20px;
@@ -32,7 +33,9 @@
     margin: 0 auto 24px;
 
     img {
-      max-height: 80px;
+      height: 80px;
+      width: 100px;
+      object-fit: contain;
     }
   }
 
@@ -41,6 +44,7 @@
     font-size: 20px;
     line-height: 25px;
     font-weight: bold;
+
 
     @media (min-width: breakpoint(xl)) {
       height: 80px;
@@ -51,6 +55,7 @@
 
   &__column-description {
     height: 100px;
+    color:#000;
   }
 
   .boxed {

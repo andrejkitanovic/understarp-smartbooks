@@ -78,7 +78,7 @@ $colSize = 12;
 if ($columns) {
     if (count($columns) < 4) {
         $colSize = round(12 / count($columns));
-    }else $colSize = 3;
+    } else $colSize = 3;
 }
 
 $columnsClass = generateClass($block, '__columns');
@@ -115,7 +115,7 @@ $columnTitleStyle = 'color: ' . $columnTitleColor  . ';';
         <div class="row">
             <?php foreach ($columns as $column) { ?>
                 <div class="col-12 col-md-6 col-lg-<?php echo $colSize; ?>">
-                    <div class="<?php echo generateClass($block, '__column'); ?>">
+                    <a href="<?php echo $column['link']['url'] ?>" class="<?php echo generateClass($block, '__column'); ?>">
                         <!-- Background -->
                         <div class="<?php echo generateClass($block, '__column-background') ?>" style="<?php echo $columnStyle; ?>"></div>
                         <!-- Icon -->
@@ -130,10 +130,10 @@ $columnTitleStyle = 'color: ' . $columnTitleColor  . ';';
                         createImageElement(generateClass($block, '__column-icon'), $icon, $alt);
                         ?>
                         <!-- Column Title -->
-                        <?php createTextElement(generateClass($block, '__column-title'), 'p', $columnTitleStyle, $column['title']); ?>
+                        <?php createTextElement(generateClass($block, '__column-title'), 'p', $columnTitleStyle, $column['link']['title']); ?>
                         <!-- Column Description -->
                         <?php createTextElement(generateClass($block, '__column-description'), 'p', '', $column['description']); ?>
-                    </div>
+                    </a>
                 </div>
             <?php } ?>
         </div>
