@@ -95,7 +95,6 @@ footer {
     font-size: 14px;
     line-height: 18px;
     margin-bottom: 15px;
-    
 
     @media screen and (min-width: breakpoint(sm)) {
       font-size: 16px;
@@ -111,8 +110,6 @@ footer {
   }
 
   .button {
-    position: relative;
-    display: inline-flex;
     justify-content: center;
     align-items: center;
     color: #fff;
@@ -121,12 +118,18 @@ footer {
     line-height: 18px;
     font-weight: bold;
     text-transform: uppercase;
-    z-index: 1;
 
     @media screen and (min-width: breakpoint(md)) {
       font-size: 18px;
       line-height: 25px;
     }
+  }
+
+  .navbutton a,
+  .button {
+    position: relative;
+    display: inline-flex;
+    z-index: 1;
 
     &:after {
       content: "";

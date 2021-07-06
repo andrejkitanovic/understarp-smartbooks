@@ -2,7 +2,7 @@
 
 function initializeSection($class = '', $style = '')
 {
-    echo '<section class="' . $class . ' new-container" style="' . $style . '">';
+    echo '<section '  . generateId() . ' class="' . $class . ' new-container" style="' . $style . '">';
 }
 
 function createDivElement($class = '', $style = '', $child = '')
@@ -41,6 +41,15 @@ function createDivImageElement($class = '', $image = '', $style = '', $additiona
 function generateClass($class = '', $addon = '')
 {
     return $class . $addon;
+}
+
+function generateId()
+{
+    $id = get_field('id');
+
+    if ($id) {
+        return 'id="' . get_field('id') . '"';
+    }
 }
 
 function filterDisplayed($arr)

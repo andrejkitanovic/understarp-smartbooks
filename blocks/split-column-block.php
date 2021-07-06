@@ -159,9 +159,11 @@ if ($mediaField) {
             <div class="<?php echo generateClass($block, '__media'); ?>">
                 <!-- Media -->
                 <?php
-                if ($mediaType === 'video' && $media) {
-                    createDivElement(generateClass($block, '__video'), '', $media);
-                } else if ($mediaType === 'image' && $media) {
+                if ($mediaType === 'video' && $media) { ?>
+                <div class="iframe-container">
+                    <?php createDivElement(generateClass($block, '__video'), '', $media); ?>
+                </div>
+                <? } else if ($mediaType === 'image' && $media) {
                     createDivImageElement(generateClass($block, '__image') . ' ' . $mediaClass, $media['url'], '', '');
                 }
                 ?>
