@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
       const scrollToTop = $(".scroll-to-top");
 
       scrollToTop.on("click", () => {
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        $("html, body").animate({ scrollTop: 0 }, "slow");
       });
 
       const changeState = (self) => {
@@ -55,15 +55,19 @@ jQuery(document).ready(function ($) {
           const link = $(this).find('a[href="#"]');
           const subMenu = $(this).find(".sub-menu");
 
-          $(link).on("click", (e) => {
+          $(link).on("click", function (e) {
             e.stopPropagation();
             e.preventDefault();
 
+            const isDisplayed = $(this).siblings(".display");
             const subMenuDisplayed = $(".sub-menu.display");
+
             if (subMenuDisplayed.length > 0) {
               $(subMenuDisplayed).removeClass("display");
             }
-            $(subMenu).toggleClass("display");
+            if (isDisplayed.length === 0) {
+              $(subMenu).toggleClass("display");
+            }
           });
         });
       }
@@ -74,7 +78,7 @@ jQuery(document).ready(function ($) {
         $(hamburger).on("click", () => {
           let dropdown = $(".menu-header-menu-container");
 
-          $(hamburger).toggleClass("open")
+          $(hamburger).toggleClass("open");
           $(dropdown).toggleClass("expanded");
         });
       }

@@ -5,10 +5,25 @@
     padding-bottom: 14px;
   }
 
+  &__holder {
+    display: block;
+    @media (min-width: breakpoint(sm)) {
+      display: flex;
+    }
+  }
+
   &__icon-holder {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 30px;
+    margin: 30px;
+
+    @media (min-width: breakpoint(sm)) {
+      margin: 10px 30px;
+    }
+  }
+
+  &__icon {
+    display: block;
   }
 }

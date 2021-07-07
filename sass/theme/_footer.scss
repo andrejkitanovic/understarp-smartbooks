@@ -53,13 +53,14 @@
 
     @media screen and (min-width: breakpoint(sm)) {
       font-size: 16px;
-    }
-
-    @media screen and (min-width: breakpoint(md)) {
       padding-top: 0;
       padding-bottom: 56px;
       padding-top: 18px;
     }
+
+    // @media screen and (min-width: breakpoint(md)) {
+
+    // }
   }
 
   &__contact-address {
@@ -68,11 +69,12 @@
 
     @media screen and (min-width: breakpoint(sm)) {
       font-size: 16px;
-    }
-
-    @media screen and (min-width: breakpoint(md)) {
       padding-top: 18px;
     }
+
+    // @media screen and (min-width: breakpoint(md)) {
+
+    // }
   }
 
   &__social-link {

@@ -73,7 +73,7 @@ $icons = filterDisplayed(get_field('icons'));
     <!-- Text -->
     <?php createTextElement(generateClass($block, '__text text'), 'p', '', $text); ?>
 
-    <div class="row justify-content-center">
+    <div class="<?php echo generateClass($block, '__holder') ?> row justify-content-center">
         <?php foreach ($icons as $icon) { ?>
             <div class="<?php echo generateClass($block, '__icon-holder'); ?> ">
                 <!-- Icon -->
