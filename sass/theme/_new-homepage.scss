@@ -126,7 +126,8 @@ footer {
   }
 
   .navbutton a,
-  .button {
+  .button,
+  .subscription__form .gform_footer.top_label {
     position: relative;
     display: inline-flex;
     z-index: 1;
@@ -148,6 +149,11 @@ footer {
     &:hover::after {
       opacity: 0.1;
     }
+  }
+
+  .subscription__form .gform_footer.top_label:after{
+    z-index:1;
+    pointer-events:none;
   }
 }
 

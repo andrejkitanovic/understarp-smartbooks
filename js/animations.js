@@ -198,6 +198,9 @@ jQuery(document).ready(function ($) {
                 spaceBetweenSlides: 0,
                 loop: isLooped,
                 ...autoplayObject,
+                navigation: {
+                  nextEl: '.testimonials__arrow-right'
+                },
                 breakpoints: {
                   // when window width is <= 999px
                   993: {

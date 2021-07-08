@@ -77,7 +77,7 @@ $scrollToTopIcon = get_field('scroll_to_top_icon', 'options');
             <div class="header-top" style="background-color:<?php echo $header_top['color'] ?>">
                 <div class="container">
                     <span class="header-top__text"><?php echo $header_top['text'] ?></span>
-                    <a href="<?php echo $header_top['button']['url'] ?>" target="_top" class="header-top__btn button"><?php echo $header_top['button']['title'] ?></a>
+                    <a href="<?php echo $header_top['button']['url'] ?>" target="_top" class="header-top__btn button d-none d-sm-inline-flex"><?php echo $header_top['button']['title'] ?></a>
                 </div>
             </div>
 

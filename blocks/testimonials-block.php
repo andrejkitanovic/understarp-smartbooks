@@ -87,31 +87,41 @@ $slides = filterDisplayed(get_field('slides'));
     <?php createTextElement($descriptionClass, 'p', '', $description); ?>
 
     <!-- Slider -->
-    <div class="<?php echo generateClass($block, '__slider'); ?> swiper-container" data-loop="true" data-autoplay="true" data-interval="3000">
-        <div class="swiper-wrapper">
 
-            <?php foreach ($slides as $slide) { ?>
-                <div class="<?php echo generateClass($block, '__slide'); ?> swiper-slide">
-                    <!-- Slide content -->
 
-                    <div class="d-flex">
-                        <div>
-                            <!-- Icon -->
-                            <?php createImageElement(generateClass($block, '__slide-icon'), $slide['image']['url'], $slide['image']['alt'], '') ?>
+    <div class="<?php echo generateClass($block, '__slider-holder'); ?>">
+        <div class="<?php echo generateClass($block, '__arrow-right'); ?>">
+            <img src="<?php the_field('arrow_right') ?>" alt="">
+        </div>
+        <div class="<?php echo generateClass($block, '__slider'); ?> swiper-container" data-loop="true" data-autoplay="true" data-interval="3000">
+
+            <div class="swiper-wrapper">
+
+
+
+                <?php foreach ($slides as $slide) { ?>
+                    <div class="<?php echo generateClass($block, '__slide'); ?> swiper-slide">
+                        <!-- Slide content -->
+
+                        <div class="d-flex">
+                            <div>
+                                <!-- Icon -->
+                                <?php createImageElement(generateClass($block, '__slide-icon'), $slide['image']['url'], $slide['image']['alt'], '') ?>
+                            </div>
+                            <div>
+                                <!-- Name -->
+                                <?php createTextElement(generateClass($block, '__slide-name'), 'p', '', $slide['name']); ?>
+                                <!-- Position -->
+                                <?php createTextElement(generateClass($block, '__slide-position'), 'p', '', $slide['role'] . ' | ' . $slide['company']); ?>
+                            </div>
                         </div>
-                        <div>
-                            <!-- Name -->
-                            <?php createTextElement(generateClass($block, '__slide-name'), 'p', '', $slide['name']); ?>
-                            <!-- Position -->
-                            <?php createTextElement(generateClass($block, '__slide-position'), 'p', '', $slide['role'] . ' | ' . $slide['company']); ?>
-                        </div>
+                        <!-- Review -->
+                        <?php createTextElement(generateClass($block, '__slide-review'), 'p', '', '"' . $slide['review'] . '"'); ?>
+
                     </div>
-                    <!-- Review -->
-                    <?php createTextElement(generateClass($block, '__slide-review'), 'p', '', '"' . $slide['review'] . '"'); ?>
+                <?php } ?>
 
-                </div>
-            <?php } ?>
-
+            </div>
         </div>
     </div>
 

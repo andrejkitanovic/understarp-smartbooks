@@ -129,14 +129,20 @@ $mediaType = $mediaField['media_type'];
 $media = '';
 $mediaClass = '';
 
+$buttonLastMedia = '';
+
 if ($mediaField) {
     if ($mediaType === 'image') {
         $media = $mediaField['image'];
         $mediaClass = $mediaField['image_position'];
+        $mediaLink = $mediaField['image_link'];
     } else if ($mediaType === 'video') {
         $media = $mediaField['video'];
+        $buttonLastMedia = 'd-none d-sm-inline-flex';
     }
 }
+
+
 
 
 ?>
@@ -153,19 +159,33 @@ if ($mediaField) {
             <!-- Description -->
             <?php createDivElement(generateClass($block, '__description description'), '', $description); ?>
             <!-- Button -->
-            <?php createLinkElement(generateClass($block, '__button button'), $buttonStyle, $buttonTitle, $buttonLink); ?>
+            <?php createLinkElement(generateClass($block, '__button button' . ' ' . $buttonLastMedia), $buttonStyle, $buttonTitle, $buttonLink); ?>
         </div>
         <div class="col-12 col-xl-<?php echo $secondCol; ?>" style="position: static;">
             <div class="<?php echo generateClass($block, '__media'); ?>">
                 <!-- Media -->
                 <?php
                 if ($mediaType === 'video' && $media) { ?>
-                <div class="iframe-container">
-                    <?php createDivElement(generateClass($block, '__video'), '', $media); ?>
-                </div>
-                <? } else if ($mediaType === 'image' && $media) {
-                    createDivImageElement(generateClass($block, '__image') . ' ' . $mediaClass, $media['url'], '', '');
-                }
+                    <div class="iframe-container">
+                        <?php createDivElement(generateClass($block, '__video'), '', $media); ?>
+                        <!-- Button -->
+                        <?php createLinkElement(generateClass($block, '__button button d-inline-flex d-sm-none'), $buttonStyle, $buttonTitle, $buttonLink); ?>
+                    </div>
+                    <? } else if ($mediaType === 'image' && $media) {
+
+                 
+                    $el = 'div';
+                    $href = '';
+
+                    if ($mediaLink) {
+                        $el = 'a';
+                        $href = 'href="' . $mediaLink . '"';
+                    }
+
+                    echo '<' . $el .  ' ' . $href . ' class="' . generateClass($block, '__image')  . ' ' . $mediaClass . '" style="background-image: url(' . $media['url'] . ')"></' . $el .  '>'
+                    ?>
+
+                <?php }
                 ?>
             </div>
         </div>

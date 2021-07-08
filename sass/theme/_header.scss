@@ -42,13 +42,16 @@ header {
     padding: 10px 0;
 
     &__text {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 8px;
+      font-size: 16px;
     }
+  }
+}
 
-    &__btn {
-      margin-left: 0;
+@media (max-width: breakpoint(md)) {
+  .header-top {
+
+    &__text {
+      font-size: 14px;
     }
   }
 }
@@ -61,10 +64,10 @@ header {
   padding: 15px 0;
   box-shadow: 0 3px 15px #b3b3b373;
 
-  &__logo{
+  &__logo {
     margin-top: 5px;
 
-    img{
+    img {
       width: 100%;
       max-width: 200px;
     }
@@ -80,6 +83,7 @@ header {
     list-style: none;
     margin-left: auto;
     align-items: center;
+    padding:0;
   }
 
   .menu-item a {
@@ -191,6 +195,7 @@ header {
       height: 30px;
       margin-left: auto;
     }
+  
 
     .menu-header-menu-container {
       max-height: 0;

@@ -79,7 +79,7 @@
       position: relative;
       top: 0;
       transform: none;
-      height: 400px !important;
+      height: 300px !important;
 
       &.top {
         top: -80px;
@@ -87,7 +87,16 @@
 
       &.bottom {
         top: 80px;
+        margin-top: -80px;
       }
+    }
+  }
+}
+
+@media (max-width: breakpoint(sm)){
+  .split-column {
+    &__button{
+      margin-top: 30px;
     }
   }
 }
