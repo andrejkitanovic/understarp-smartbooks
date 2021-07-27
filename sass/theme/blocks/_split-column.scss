@@ -19,15 +19,14 @@
       margin-top: 0;
     }
 
-    .iframe-container{
-      padding-top: 56.25%;
-    }
-
     iframe {
       max-width: 100%;
-      height: 1005;
       // height: 50vw;
 
+      height: 50vw;
+      @media (min-width: breakpoint(md)){
+        height: 360px;
+      }
       // @media (min-width: breakpoint(lg)) {
       //   height: 400px;
       // }

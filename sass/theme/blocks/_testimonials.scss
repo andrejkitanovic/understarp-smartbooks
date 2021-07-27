@@ -9,8 +9,8 @@
     right: 0;
     cursor: pointer;
 
-    @media (min-width:breakpoint(md)){
-      right:-25px;
+    @media (min-width: breakpoint(md)) {
+      right: -25px;
     }
   }
 
@@ -26,6 +26,11 @@
     height: 100%;
     display: block;
     margin-top: 60px;
+    padding: 0;
+
+    @media (min-width: breakpoint(sm)) {
+      padding: 0 15px;
+    }
 
     .swiper-wrapper {
       display: flex;
@@ -38,7 +43,6 @@
     width: 495px;
     height: 293px;
     background: #f6fcfd;
-    box-shadow: -5px 5px 10px #0000000a;
   }
 
   &__slide-icon {

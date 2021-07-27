@@ -44,14 +44,15 @@ $social_links = get_field('social_links', 'options');
 <footer class="footer" style="<?php echo $bgStyle ?>">
     <div class="container">
         <div class="footer__main">
+            <a href="<?php echo home_url(); ?>" class="footer__logo">
+                <?php if ($footer_logo) : ?>
+                    <img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['alt']; ?>">
+                <?php endif; ?>
+            </a>
             <div class="row">
                 <div class="col-12 col-sm-8">
 
-                    <a href="<?php echo home_url(); ?>" class="footer__logo">
-                        <?php if ($footer_logo) : ?>
-                            <img src="<?php echo $footer_logo['url']; ?>" alt="<?php echo $footer_logo['alt']; ?>">
-                        <?php endif; ?>
-                    </a>
+
 
                     <div class="footer__links">
                         <div class="row">

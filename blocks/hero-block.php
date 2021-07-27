@@ -84,7 +84,7 @@ if ($button && $button['link']) {
 </div>
 
 <!-- Images -->
-<div class="<?php echo generateClass($block, '__images'); ?>" data-interval="<?php echo $slidesInterval; ?>">
+<div class="<?php echo generateClass($block, '__images'); ?> d-none d-sm-block" data-interval="<?php echo $slidesInterval; ?>">
     <?php foreach ($slides as $key => $slide) { ?>
         <!-- Image -->
         <?php

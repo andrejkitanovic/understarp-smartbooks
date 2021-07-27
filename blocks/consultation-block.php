@@ -122,7 +122,7 @@ $image = get_field('image');
     </div>
 </div>
 
-<div class="<?php echo generateClass($block, '__images'); ?>">
+<div class="<?php echo generateClass($block, '__images'); ?> d-none d-sm-block">
     <!-- Image -->
     <?php
     createDivImageElement(generateClass($block, '__image'), $image['url'], '', '');

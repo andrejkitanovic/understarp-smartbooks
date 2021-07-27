@@ -41,18 +41,14 @@ body {
   padding-bottom: 0;
 
   &--ticker {
-    padding-top: 166px;
+    padding-top: 80px;
 
     @media screen and (min-width: breakpoint(sm)) {
-      padding-top: 146px;
+      padding-top: 125px;
     }
 
     @media screen and (min-width: breakpoint(xl)) {
-      padding-top: 178px;
-    }
-
-    @media screen and (min-width: 1400px) {
-      padding-top: 162px;
+      padding-top: 140px;
     }
   }
 }
