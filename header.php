@@ -72,7 +72,7 @@ $scrollToTopIcon = get_field('scroll_to_top_icon', 'options');
     <div class="site" id="page">
 
         <!-- ******************* The Navbar Area ******************* -->
-        <header>
+        <header id="header">
 
             <div class="header-top d-none d-sm-block" style="background-color:<?php echo $header_top['color'] ?>">
                 <div class="container">

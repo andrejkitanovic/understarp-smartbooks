@@ -1,8 +1,10 @@
 .pagination {
   display: flex;
+  justify-content: center;
   @include list-unstyled();
   @include border-radius();
 }
+
 
 .page-link {
   position: relative;

@@ -94,7 +94,7 @@ if ($button && $button['link']) {
             $slideStyle = 'display:none;';
         }
 
-        createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word= ' . $slide['header_word']);
+        createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word="' . $slide['header_word'] . '"');
         ?>
     <?php } ?>
 </div>

@@ -2,7 +2,7 @@ jQuery(document).ready(function ($) {
   if (gsap) {
     // Header
     $(function () {
-      const header = $("header");
+      const header = $("#header");
       const scrollToTop = $(".scroll-to-top");
 
       scrollToTop.on("click", () => {
