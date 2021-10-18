@@ -150,7 +150,6 @@ gulp.task('scripts', function() {
 		// Start - All BS4 stuff
 		`${paths.dev}/js/bootstrap4/bootstrap.bundle.js`,
 
-		`${paths.dev}/js/gsap/gsap.min.js`,
 		// End - All BS4 stuff
 
 		`${paths.dev}/js/skip-link-focus-fix.js`,

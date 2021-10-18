@@ -1,8 +1,9 @@
+console.log('animations js/animations.js loaded')
 jQuery(document).ready(function ($) {
   if (gsap) {
     // Header
     $(function () {
-      const header = $("#header");
+      const header = $("header");
       const scrollToTop = $(".scroll-to-top");
 
       scrollToTop.on("click", () => {
@@ -92,7 +93,7 @@ jQuery(document).ready(function ($) {
         let current = 1;
         let categories = $(".hero__image");
         let word = $("h1 span");
-
+        console.log('word:', word)
         const goToNext = () => {
           if (current < categories.length) {
             changeCategory(current);
@@ -133,8 +134,9 @@ jQuery(document).ready(function ($) {
           });
 
           let wordText = word.text();
+		  console.log('wordText:', wordText)
           const newWord = categories[index].getAttribute("data-word");
-
+		  console.log('newWord:', newWord)
           let typeNewWord = null;
 
           let remove = setInterval(() => {
@@ -152,6 +154,7 @@ jQuery(document).ready(function ($) {
 
           const typeFunction = () => {
             if (wordText.length < newWord.length) {
+				
               wordText += newWord.charAt(wordText.length);
               word.text(wordText);
             } else {

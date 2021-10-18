@@ -16,7 +16,7 @@ $all_active   = empty( $_GET['folder_id'] ) ? 'class="active"' : '';
 $sidebar_form = get_field( 'sidebar_form', 'options' );
 ?>
 
-<?php if ( is_active_sidebar( 'true_side' ) ) : ?>
+
     <aside class="sidebar">
 
 		<?php if ( is_home() ) : ?>
@@ -51,4 +51,3 @@ $sidebar_form = get_field( 'sidebar_form', 'options' );
 
     </aside>
 
-<?php endif; ?>

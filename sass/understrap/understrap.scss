@@ -1,12 +1,9 @@
 // Some basic padding for all wrappers
 .wrapper {
-  padding: $grid-gutter-width 0;
-}
+  padding: $grid-gutter-width 0; }
 
 // Reset hero wrapper padding to 0
-#wrapper-hero {
-  padding: 0px !important;
-}
+#wrapper-hero { padding: 0px !important; }
 
 // Adding basic WordPress classes to pass the WordPress.org tests
 .sticky,
@@ -16,28 +13,18 @@
 }
 
 // Separate sticky wrapper from main content
-.wrapper#wrapper-sticky {
-  border-bottom: 1px solid $gray-300;
-}
+.wrapper#wrapper-sticky { border-bottom: 1px solid $gray-300; }
 
 // Adding some contrast background color to footer full widget
 #wrapper-footer-full,
-#wrapper-static-hero {
-  background-color: $gray-200;
-}
+#wrapper-static-hero { background-color: $gray-200; }
 
 // Necessary WP classes
-.wp-caption {
-  font-size: inherit;
-}
+.wp-caption { font-size: inherit; }
 
-.wp-caption-text {
-  font-size: inherit;
-}
+.wp-caption-text { font-size: inherit; }
 
-.screen-reader-text {
-  @extend .sr-only;
-}
+.screen-reader-text { @extend .sr-only; }
 
 .alignleft {
   display: inline;
@@ -51,21 +38,10 @@
   margin-left: 1.5em;
 }
 
-.aligncenter {
-  @extend .mx-auto;
-}
+.aligncenter { @extend .mx-auto; }
 
 // Post design
-.entry-title {
-  font-size: 24px;
-}
-.entry-footer span {
-  padding-right: 10px;
-}
-.entry-footer .link {
-  padding-top: 10px;
-  color: #015d9a;
-}
+.entry-footer span { padding-right: 10px; }
 
 // Limit featured image size to 100%
 img.wp-post-image,
@@ -86,12 +62,10 @@ a.skip-link {
 }
 
 // Reset Jumbotron default margin
-.jumbotron {
-  margin-bottom: 0px;
-}
+.jumbotron { margin-bottom: 0px; }
 
 // Dropdown translation
-.navbar-dark .navbar-nav .dropdown-menu .nav-link {
+.navbar-dark .navbar-nav .dropdown-menu .nav-link{
   display: block;
   width: 100%; // For `<button>`s
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
@@ -128,21 +102,19 @@ a.skip-link {
 }
 
 .navbar-light .navbar-brand a {
-  color: $navbar-light-active-color;
+     color: $navbar-light-active-color;
 
-  @include hover-focus {
-    color: $navbar-light-active-color;
-  }
+    @include hover-focus {
+      color: $navbar-light-active-color;
+    }
 }
 
 .navbar-dark .navbar-brand a {
-  color: $navbar-dark-active-color;
-
-  @include hover-focus {
     color: $navbar-dark-active-color;
-  }
+
+    @include hover-focus {
+      color: $navbar-dark-active-color;
+    }
 }
 
-.navbar h1 {
-  font-weight: $font-weight-normal;
-}
+.navbar h1 { font-weight: $font-weight-normal; }

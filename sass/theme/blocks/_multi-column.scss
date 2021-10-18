@@ -5,12 +5,12 @@
     padding: 0 20px;
 
     @media (min-width: breakpoint(sm)) {
-      padding:0;
+      padding: 0;
     }
   }
 
   &__column {
-    display:block;
+    display: block;
     position: relative;
     max-width: 245px;
     padding: 45px 20px;
@@ -41,21 +41,41 @@
 
   &__column-title {
     height: 60px;
-    font-size: 20px;
+    // font-size: 20px;
     line-height: 25px;
-    font-weight: bold;
+    @include font-size($font-size-base * 1.56);
 
+    &.font-22 {
+      @include font-size($font-size-base * 1.375);
+    }
+
+    &.font-20 {
+      @include font-size($font-size-base * 1.25);
+    }
+
+    &.font-18 {
+      @include font-size($font-size-base * 1.125);
+    }
+
+    &.font-16 {
+      @include font-size($font-size-base * 1);
+    }
+
+    &.font-14 {
+      @include font-size($font-size-base * 0.875);
+    }
 
     @media (min-width: breakpoint(xl)) {
       height: 80px;
-      font-size: 25px;
+      //   font-size: 25px;
       line-height: 30px;
     }
   }
 
   &__column-description {
-    height: 100px;
-    color:#000;
+    // height: 100px;
+    height: max-content;
+    color: #000;
   }
 
   .boxed {

@@ -1,6 +1,10 @@
 .basic-content {
   $parent: &;
 
+  .container.small_container {
+    max-width: 900px;
+  }
+
   img#{$parent}__image,
   &__image img {
     margin: 15px 50px;

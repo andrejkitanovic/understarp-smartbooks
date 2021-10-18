@@ -68,12 +68,13 @@ if ($button && $button['link']) {
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 
-<div class="container">
+<div class="container nick">
     <div class="row">
         <div class="col-12 col-xl-6">
             <div class="<?php echo generateClass($block, '__content'); ?>">
                 <!-- Heading -->
-                <?php createTextElement(generateClass($block, '__heading heading'), 'h1', $headingStyle, $heading['text']); ?>
+				<?php createTextElement(generateClass($block, '__heading heading'), 'h1', $headingStyle . ' margin-bottom: 15px!important; height: auto', $heading['text']); ?>
+
                 <!-- Description -->
                 <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
                 <!-- Button -->
@@ -93,8 +94,8 @@ if ($button && $button['link']) {
         if ($key != 0) {
             $slideStyle = 'display:none;';
         }
-
-        createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word="' . $slide['header_word'] . '"');
+		
+        createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word="' . $slide['header_word']. '"');
         ?>
     <?php } ?>
 </div>
