@@ -13,20 +13,20 @@ $blockStyle = '';
 
 $bgType  = get_field('background_type');
 $bgColor = get_field('background_color');
-$bgImage = get_field('baclground_image');
+$bgImage = get_field('background_image');
 $bgStyle = '';
 
 if ($bgType) {
-    if ($bgType == 'colored') {
-        $bgStyle = 'background-color: ' . $bgColor  . ';';
-    }
-    if ($bgType == 'image') {
-        $bgStyle = 'background-image: url(' . $bgImage . ');';
-    }
+	if ($bgType == 'colored') {
+		$bgStyle = 'background-color: ' . $bgColor  . ';';
+	}
+	if ($bgType == 'image') {
+		$bgStyle = 'background-image: url(' . $bgImage['url'] . ');';
+	}
 }
 
 if ($bgStyle) {
-    $blockStyle .= $bgStyle;
+	$blockStyle .= $bgStyle;
 }
 
 // ? HEADING
@@ -34,7 +34,7 @@ if ($bgStyle) {
 $heading = get_field('heading');
 
 if ($heading && $heading['marked_word']) {
-    $heading = str_replace($heading['marked_word'], '<br class="d-block d-md-none"/><span style="color:' . $heading['marked_color'] . '">' . $heading['marked_word'] . '</span>', $heading);
+	$heading = str_replace($heading['marked_word'], '<br class="d-block d-md-none"/><span style="color:' . $heading['marked_color'] . '">' . $heading['marked_word'] . '</span>', $heading);
 }
 
 $headingStyle = '';
@@ -58,9 +58,9 @@ $buttonTitle = '';
 $buttonLink = '';
 
 if ($button && $button['link']) {
-    $buttonStyle = 'background-color: ' . $button['color']  . ';';
-    $buttonTitle = $button['link']['title'];
-    $buttonLink = $button['link']['url'];
+	$buttonStyle = 'background-color: ' . $button['color']  . ';';
+	$buttonTitle = $button['link']['title'];
+	$buttonLink = $button['link']['url'];
 }
 
 
@@ -69,35 +69,35 @@ if ($button && $button['link']) {
 <?php initializeSection($blockClass, $blockStyle) ?>
 
 <div class="container nick">
-    <div class="row">
-        <div class="col-12 col-xl-6">
-            <div class="<?php echo generateClass($block, '__content'); ?>">
-                <!-- Heading -->
+	<div class="row">
+		<div class="col-12 col-xl-6">
+			<div class="<?php echo generateClass($block, '__content'); ?>">
+				<!-- Heading -->
 				<?php createTextElement(generateClass($block, '__heading heading'), 'h1', $headingStyle . ' margin-bottom: 15px!important; height: auto', $heading['text']); ?>
 
-                <!-- Description -->
-                <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
-                <!-- Button -->
-                <?php createLinkElement(generateClass($block, '__button button'), $buttonStyle, $buttonTitle, $buttonLink); ?>
-            </div>
-        </div>
-    </div>
+				<!-- Description -->
+				<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
+				<!-- Button -->
+				<?php createLinkElement(generateClass($block, '__button button'), $buttonStyle, $buttonTitle, $buttonLink); ?>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- Images -->
 <div class="<?php echo generateClass($block, '__images'); ?> d-none d-sm-block" data-interval="<?php echo $slidesInterval; ?>">
-    <?php foreach ($slides as $key => $slide) { ?>
-        <!-- Image -->
-        <?php
-        $slideStyle = '';
+	<?php foreach ($slides as $key => $slide) { ?>
+		<!-- Image -->
+		<?php
+		$slideStyle = '';
 
-        if ($key != 0) {
-            $slideStyle = 'display:none;';
-        }
-		
-        createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word="' . $slide['header_word']. '"');
-        ?>
-    <?php } ?>
+		if ($key != 0) {
+			$slideStyle = 'display:none;';
+		}
+
+		createDivImageElement(generateClass($block, '__image'), $slide['image']['url'], $slideStyle, 'data-word="' . $slide['header_word'] . '"');
+		?>
+	<?php } ?>
 </div>
 
 </section>

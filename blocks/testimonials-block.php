@@ -13,16 +13,16 @@ $blockStyle = '';
 
 $bgType  = get_field('background_type');
 $bgColor = get_field('background_color');
-$bgImage = get_field('baclground_image');
+$bgImage = get_field('background_image');
 $bgStyle = '';
 
 if ($bgType) {
-    if ($bgType == 'colored') {
-        $bgStyle = 'background-color: ' . $bgColor  . ';';
-    }
-    if ($bgType == 'image') {
-        $bgStyle = 'background-image: url(' . $bgImage . ');';
-    }
+	if ($bgType == 'colored') {
+		$bgStyle = 'background-color: ' . $bgColor  . ';';
+	}
+	if ($bgType == 'image') {
+		$bgStyle = 'background-image: url(' . $bgImage['url'] . ');';
+	}
 }
 
 //  * |---|--> Block text alignment
@@ -39,23 +39,23 @@ $textColor = get_field('text_color');
 $padding = get_field('padding');
 
 if ($padding) {
-    $blockClass .= ' padding-' . $padding;
+	$blockClass .= ' padding-' . $padding;
 }
 
 if ($bgStyle) {
-    $blockStyle .= $bgStyle;
+	$blockStyle .= $bgStyle;
 }
 
 if ($textAlignment) {
-    $textStyle .= 'text-align:' . $textAlignment . ';';
+	$textStyle .= 'text-align:' . $textAlignment . ';';
 }
 
 if ($textColor) {
-    $textStyle .= 'color:' . $textColor . ';';
+	$textStyle .= 'color:' . $textColor . ';';
 }
 
 if ($textStyle) {
-    $blockStyle .= $textStyle;
+	$blockStyle .= $textStyle;
 }
 
 // ? HEADING
@@ -76,54 +76,66 @@ $descriptionClass = $block . '__description description';
 // ? SLIDES
 
 $slides = filterDisplayed(get_field('slides'));
+$sliderOptions = get_field('slider_options');
+$loop = $sliderOptions['loop'];
+$autoplay = $sliderOptions['autoplay'];
+$interval = $sliderOptions['interval'];
 
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 <div class="container">
-    <!-- Heading -->
-    <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
-    <!-- Description -->
-    <?php createTextElement($descriptionClass, 'p', '', $description); ?>
+	<!-- Heading -->
+	<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+	<!-- Description -->
+	<?php createTextElement($descriptionClass, 'div', '', $description); ?>
 
-    <!-- Slider -->
-
-
-    <div class="<?php echo generateClass($block, '__slider-holder'); ?>">
-        <div class="<?php echo generateClass($block, '__arrow-right'); ?>">
-            <img src="<?php the_field('arrow_right') ?>" alt="">
-        </div>
-        <div class="<?php echo generateClass($block, '__slider'); ?> swiper-container" data-loop="true" data-autoplay="true" data-interval="3000">
-
-            <div class="swiper-wrapper">
+	<!-- Slider -->
 
 
+	<div class="<?php echo generateClass($block, '__slider-holder'); ?>">
+		<?php if ($loop || count($slides) > 2) { ?>
+			<div class="<?php echo generateClass($block, '__arrow-right'); ?>">
+				<img src="<?php the_field('arrow_right') ?>" alt="">
+			</div>
+		<?php } ?>
+		<div class="<?php echo generateClass($block, '__slider'); ?> swiper-container" data-loop="<?php echo $loop; ?>" data-autoplay="<?php echo $autoplay; ?>" data-interval="<?php echo $interval; ?>">
 
-                <?php foreach ($slides as $slide) { ?>
-                    <div class="<?php echo generateClass($block, '__slide'); ?> swiper-slide">
-                        <!-- Slide content -->
+			<div class="swiper-wrapper">
 
-                        <div class="d-flex">
-                            <div>
-                                <!-- Icon -->
-                                <?php createImageElement(generateClass($block, '__slide-icon'), $slide['image']['url'], $slide['image']['alt'], '') ?>
-                            </div>
-                            <div>
-                                <!-- Name -->
-                                <?php createTextElement(generateClass($block, '__slide-name'), 'p', '', $slide['name']); ?>
-                                <!-- Position -->
-                                <?php createTextElement(generateClass($block, '__slide-position'), 'p', '', $slide['role'] . ' | ' . $slide['company']); ?>
-                            </div>
-                        </div>
-                        <!-- Review -->
-                        <?php createTextElement(generateClass($block, '__slide-review'), 'p', '', '"' . $slide['review'] . '"'); ?>
 
-                    </div>
-                <?php } ?>
 
-            </div>
-        </div>
-    </div>
+				<?php foreach ($slides as $slide) { ?>
+					<div class="<?php echo generateClass($block, '__slide'); ?> swiper-slide">
+						<!-- Slide content -->
+
+						<div class="d-flex">
+							<div>
+								<!-- Icon -->
+								<?php createImageElement(generateClass($block, '__slide-icon'), $slide['image']['url'], $slide['image']['alt'], '') ?>
+							</div>
+							<div>
+								<!-- Name -->
+								<?php createTextElement(generateClass($block, '__slide-name'), 'p', '', $slide['name']); ?>
+								<!-- Position -->
+								<?php
+								$divider = '';
+								if ($slide['role'] && $slide['company']) {
+									$divider = ' | ';
+								}
+								?>
+								<?php createTextElement(generateClass($block, '__slide-position'), 'p', '', $slide['role'] . $divider . $slide['company']); ?>
+							</div>
+						</div>
+						<!-- Review -->
+						<?php createTextElement(generateClass($block, '__slide-review'), 'p', '', '"' . $slide['review'] . '"'); ?>
+
+					</div>
+				<?php } ?>
+
+			</div>
+		</div>
+	</div>
 
 </div>
 </section>

@@ -17,12 +17,12 @@ $bgImage = get_field('baclground_image');
 $bgStyle = '';
 
 if ($bgType) {
-    if ($bgType == 'colored') {
-        $bgStyle = 'background-color: ' . $bgColor  . ';';
-    }
-    if ($bgType == 'image') {
-        $bgStyle = 'background-image: url(' . $bgImage . ');';
-    }
+	if ($bgType == 'colored') {
+		$bgStyle = 'background-color: ' . $bgColor  . ';';
+	}
+	if ($bgType == 'image') {
+		$bgStyle = 'background-image: url(' . $bgImage . ');';
+	}
 }
 
 //  * |---|--> Block text alignment
@@ -39,22 +39,22 @@ $textColor = get_field('text_color');
 $padding = get_field('padding');
 
 if ($padding) {
-    $blockClass .= ' padding-' . $padding;
+	$blockClass .= ' padding-' . $padding;
 }
 
 if ($textAlignment) {
-    $textStyle .= 'text-align:' . $textAlignment . ';';
+	$textStyle .= 'text-align:' . $textAlignment . ';';
 }
 
 if ($textColor) {
-    $textStyle .= 'color:' . $textColor . ';';
+	$textStyle .= 'color:' . $textColor . ';';
 }
 
 if ($bgStyle) {
-    $blockStyle .= $bgStyle;
+	$blockStyle .= $bgStyle;
 }
 if ($textStyle) {
-    $blockStyle .= $textStyle;
+	$blockStyle .= $textStyle;
 }
 
 // ? HEADING
@@ -62,10 +62,10 @@ if ($textStyle) {
 $heading = get_field('heading');
 
 if ($heading) {
-    $headingClass = $block . '__heading heading';
-    $headingSize = $heading['size'];
-    $headingColor = $heading['color'];
-    $headingText = $heading['text'];
+	$headingClass = $block . '__heading heading';
+	$headingSize = $heading['size'];
+	$headingColor = $heading['color'];
+	$headingText = $heading['text'];
 }
 
 $headingStyle = 'color:' . $headingColor . ';';
@@ -74,18 +74,21 @@ $headingStyle = 'color:' . $headingColor . ';';
 
 $description = get_field('description');
 
+// ? INPUT BACKGROUND
+$inputBg = get_field('input_background');
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 <div class="container">
-    <!-- Heading -->
-    <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
-    <!-- Description -->
-    <?php createTextElement(generateClass($block, '__description description'), 'p', '', $description); ?>
-    <!-- Subscription -->
-    <div class="<?php echo generateClass($block, '__form') ?>">
-        <?php gravity_form('New Subscribe', false, false, false, false, true, 1, true); ?>
-    </div>
+	<!-- Heading -->
+	<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+	<!-- Description -->
+	<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
+	<!-- Subscription -->
+	<div class="<?php echo generateClass($block, '__form') ?>" data-bg="<?php echo $inputBg; ?>">
+		<?php gravity_form('New Subscribe', false, false, false, false, true, 1, true); ?>
+	</div>
 
 </div>
 </section>

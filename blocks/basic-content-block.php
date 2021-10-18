@@ -13,16 +13,16 @@ $blockStyle = '';
 
 $bgType  = get_field('background_type');
 $bgColor = get_field('background_color');
-$bgImage = get_field('baclground_image');
+$bgImage = get_field('background_image');
 $bgStyle = '';
 
 if ($bgType) {
-    if ($bgType == 'colored') {
-        $bgStyle = 'background-color: ' . $bgColor  . ';';
-    }
-    if ($bgType == 'image') {
-        $bgStyle = 'background-image: url(' . $bgImage . ');';
-    }
+	if ($bgType == 'colored') {
+		$bgStyle = 'background-color: ' . $bgColor  . ';';
+	}
+	if ($bgType == 'image') {
+		$bgStyle = 'background-image: url(' . $bgImage['url'] . ');';
+	}
 }
 
 //  * |---|--> Block text alignment
@@ -34,27 +34,31 @@ $textAlignment = get_field('text_alignment');
 
 $textColor = get_field('text_color');
 
+//  * |---|--> Block width
+
+$smallerContent = get_field('smaller_content');
+
 //  * |---|--> Block padding
 
 $padding = get_field('padding');
 
 if ($padding) {
-    $blockClass .= ' padding-' . $padding;
+	$blockClass .= ' padding-' . $padding;
 }
 
 if ($textAlignment) {
-    $textStyle .= 'text-align:' . $textAlignment . ';';
+	$textStyle .= 'text-align:' . $textAlignment . ';';
 }
 
 if ($textColor) {
-    $textStyle .= 'color:' . $textColor . ';';
+	$textStyle .= 'color:' . $textColor . ';';
 }
 
 if ($bgStyle) {
-    $blockStyle .= $bgStyle;
+	$blockStyle .= $bgStyle;
 }
 if ($textStyle) {
-    $blockStyle .= $textStyle;
+	$blockStyle .= $textStyle;
 }
 
 // ? HEADING
@@ -62,10 +66,10 @@ if ($textStyle) {
 $heading = get_field('heading');
 
 if ($heading) {
-    $headingClass = $block . '__heading heading';
-    $headingSize = $heading['size'];
-    $headingColor = $heading['color'];
-    $headingText = $heading['text'];
+	$headingClass = $block . '__heading heading';
+	$headingSize = $heading['size'];
+	$headingColor = $heading['color'];
+	$headingText = $heading['text'];
 }
 
 $headingStyle = 'color:' . $headingColor . ';';
@@ -82,20 +86,20 @@ $images = filterDisplayed(get_field('images'));
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<div class="container">
-    <!-- Heading -->
-    <?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
-    <!-- Description -->
-    <?php createTextElement($descriptionClass, 'p', '', $description); ?>
+<div class="container<?php if ($smallerContent) echo ' small_container' ?>">
+	<!-- Heading -->
+	<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+	<!-- Description -->
+	<?php createTextElement($descriptionClass, 'div', '', $description); ?>
 
-    <div class="row justify-content-center">
-        <?php foreach ($images as $image) { ?>
-            <div class="<?php echo generateClass($block, '__image-holder'); ?> ">
-                <!-- Image -->
-                <?php createImageElement(generateClass($block, '__image'), $image['image']['url'], $image['image']['title']); ?>
-            </div>
-        <?php } ?>
-    </div>
+	<div class="row justify-content-center">
+		<?php foreach ($images as $image) { ?>
+			<div class="<?php echo generateClass($block, '__image-holder'); ?> ">
+				<!-- Image -->
+				<?php createImageElement(generateClass($block, '__image'), $image['image']['url'], $image['image']['title']); ?>
+			</div>
+		<?php } ?>
+	</div>
 </div>
 
 </section>
