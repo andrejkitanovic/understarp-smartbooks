@@ -80,6 +80,10 @@ $sliderOptions = get_field('slider_options');
 $loop = $sliderOptions['loop'];
 $autoplay = $sliderOptions['autoplay'];
 $interval = $sliderOptions['interval'];
+$thumbnailHeight = $sliderOptions['thumbnail_height'];
+$thumbnailWidth = $sliderOptions['thumbnail_width'];
+
+$thumbnailStyle = 'height: ' . $thumbnailHeight . 'px; width: ' . $thumbnailWidth . 'px;';
 
 ?>
 
@@ -112,7 +116,9 @@ $interval = $sliderOptions['interval'];
 						<div class="d-flex">
 							<div>
 								<!-- Icon -->
-								<?php createImageElement(generateClass($block, '__slide-icon'), $slide['image']['url'], $slide['image']['alt'], '') ?>
+								<?php if ($slide['image']) { ?>
+									<div style="<?php echo $thumbnailStyle ?>background-image: url('<?php echo $slide['image']['url'] ?>')" class="<?php echo generateClass($block, '__slide-icon') ?>"></div>
+								<?php } ?>
 							</div>
 							<div>
 								<!-- Name -->

@@ -49,12 +49,14 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    object-fit: cover;
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
     margin-right: 20px;
 
-    @media screen and (min-width: breakpoint(md)) {
-      width: 105px;
-      height: 105px;
+    @media screen and (max-width: breakpoint(md)) {
+      width: 80px !important;
+      height: 80px !important;
     }
   }
 
@@ -62,9 +64,9 @@
     font-weight: 600;
     padding-top: 10px;
 
-    @media screen and (min-width: breakpoint(md)) {
-      padding-top: 30px;
-    }
+    // @media screen and (min-width: breakpoint(md)) {
+    //   padding-top: 30px;
+    // }
   }
 
   &__slide-review {
