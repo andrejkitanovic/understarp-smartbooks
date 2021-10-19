@@ -101,6 +101,14 @@ $thumbnailStyle = 'height: ' . $thumbnailHeight . 'px; width: ' . $thumbnailWidt
 // ? CONTENT MAX WIDTH
 $contentMaxWidth = get_field('content_max_width');
 
+// ? CTA BUTTON
+$ctaButton = get_field('cta_button');
+$ctaLink = $ctaButton['link'];
+$ctaTextColor = $ctaButton['color'];
+$ctaBg = $ctaButton['background_color'];
+
+$ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
@@ -114,6 +122,10 @@ $contentMaxWidth = get_field('content_max_width');
 	?>
 	<!-- Description -->
 	<?php createTextElement($descriptionClass, 'div', '', $description); ?>
+	<!-- Button -->
+	<?php if ($ctaLink) {
+		createLinkElement(generateClass($block, '__button button'), $ctaStyle, $ctaLink['title'], $ctaLink['url']);
+	} ?>
 
 	<!-- Slider -->
 

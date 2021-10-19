@@ -103,8 +103,8 @@ $columnStylingField = get_field('column_styling');
 $columnType  = $columnStylingField['column_type'];
 $columnBackground = $columnStylingField['column_background'];
 $columnTitleColor = $columnStylingField['column_title_color'];
-$columnTitleSize = get_field('column_header_size');
-$columnTitleBolded = get_field('column_header_bolded');
+$columnTitleSize = $columnStylingField['column_header_size'];
+$columnTitleBolded = $columnStylingField['column_header_bolded'];
 $columnStyle = '';
 
 if ($columnType) {
@@ -127,6 +127,14 @@ if ($columnTitleBolded) {
 // ? CONTENT MAX WIDTH
 $contentMaxWidth = get_field('content_max_width');
 
+// ? CTA BUTTON
+$ctaButton = get_field('cta_button');
+$ctaLink = $ctaButton['link'];
+$ctaTextColor = $ctaButton['color'];
+$ctaBg = $ctaButton['background_color'];
+
+$ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
+
 ?>
 
 
@@ -141,30 +149,69 @@ $contentMaxWidth = get_field('content_max_width');
 	?>
 	<!-- Description -->
 	<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
+	<!-- Button -->
+	<?php if ($ctaLink) {
+		createLinkElement(generateClass($block, '__button button'), $ctaStyle, $ctaLink['title'], $ctaLink['url']);
+	} ?>
 
 	<div class="<?php echo $columnsClass; ?>">
 		<div class="row">
-			<?php foreach ($columns as $column) { ?>
-				<div class="col-12 col-md-6 col-lg-<?php echo $colSize; ?>">
-					<a href="<?php echo $column['link']['url'] ?>" class="<?php echo generateClass($block, '__column'); ?>">
-						<!-- Background -->
-						<div class="<?php echo generateClass($block, '__column-background') ?>" style="<?php echo $columnStyle; ?>"></div>
-						<!-- Icon -->
-						<?php
-						$icon = '';
-						$alt = '';
+			<?php foreach ($columns as $column) {
+				$colCta = $column['cta_button'];
+				$colCtaLink = $colCta['link'];
+				$colCtaTextColor = $colCta['color'];
+				$colCtaBg = $colCta['background_color'];
 
-						if ($column['icon']) {
-							$icon = $column['icon']['url'];
-							$alt = $column['icon']['title'];
-						}
-						createImageElement(generateClass($block, '__column-icon'), $icon, $alt);
-						?>
-						<!-- Column Title -->
-						<?php createTextElement(generateClass($block, $columnTitleClass), 'p', $columnTitleStyle, $column['title']); ?>
-						<!-- Column Description -->
-						<?php createTextElement(generateClass($block, '__column-description'), 'p', '', $column['description']); ?>
-					</a>
+				$colCtaStyle = 'color:' . $colCtaTextColor . '; background-color:' . $colCtaBg;
+
+				$bgClass = '__column-background';
+			?>
+				<div class="col-12 col-md-6 col-lg-<?php echo $colSize; ?>">
+					<?php if ($colCtaLink) {  ?>
+						<div class="<?php echo generateClass($block, '__column'); ?>">
+							<!-- Background -->
+							<div class="<?php echo generateClass($block, $bgClass) ?>" style="<?php echo $columnStyle; ?>"></div>
+							<!-- Icon -->
+							<?php
+							$icon = '';
+							$alt = '';
+
+							if ($column['icon']) {
+								$icon = $column['icon']['url'];
+								$alt = $column['icon']['title'];
+							}
+							createImageElement(generateClass($block, '__column-icon'), $icon, $alt);
+							?>
+							<!-- Column Title -->
+							<?php createTextElement(generateClass($block, $columnTitleClass), 'p', $columnTitleStyle, $column['title']); ?>
+							<!-- Column Description -->
+							<?php createTextElement(generateClass($block, '__column-description with-btn'), 'p', '', $column['description']); ?>
+							<!-- Button -->
+							<?php if ($colCtaLink) {
+								createLinkElement(generateClass($block, '__column-button button'), $colCtaStyle, $colCtaLink['title'], $colCtaLink['url']);
+							} ?>
+						</div>
+					<?php } else { ?>
+						<a href="<?php echo $column['link']['url'] ?>" class="<?php echo generateClass($block, '__column'); ?>">
+							<!-- Background -->
+							<div class="<?php echo generateClass($block, $bgClass) ?>" style="<?php echo $columnStyle; ?>"></div>
+							<!-- Icon -->
+							<?php
+							$icon = '';
+							$alt = '';
+
+							if ($column['icon']) {
+								$icon = $column['icon']['url'];
+								$alt = $column['icon']['title'];
+							}
+							createImageElement(generateClass($block, '__column-icon'), $icon, $alt);
+							?>
+							<!-- Column Title -->
+							<?php createTextElement(generateClass($block, $columnTitleClass), 'p', $columnTitleStyle, $column['title']); ?>
+							<!-- Column Description -->
+							<?php createTextElement(generateClass($block, '__column-description'), 'p', '', $column['description']); ?>
+						</a>
+					<?php } ?>
 				</div>
 			<?php } ?>
 		</div>

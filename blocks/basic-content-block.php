@@ -70,6 +70,19 @@ if ($heading) {
 
 $headingStyle = 'color:' . $headingColor . ';';
 
+// ? SUB HEADING
+
+$subHeading = get_field('sub_heading');
+
+if ($subHeading) {
+	$subHeadingClass = $block . '__sub-heading sub-heading';
+	$subHeadingSize = $subHeading['size'];
+	$subHeadingColor = $subHeading['color'];
+	$subHeadingText = $subHeading['text'];
+}
+
+$subHeadingStyle = 'color:' . $subHeadingColor . ';';
+
 // ? DESCRIPTION
 
 $description = get_field('description');
@@ -82,14 +95,31 @@ $images = filterDisplayed(get_field('images'));
 // ? CONTENT MAX WIDTH
 $contentMaxWidth = get_field('content_max_width');
 
+// ? CTA BUTTON
+$ctaButton = get_field('cta_button');
+$ctaLink = $ctaButton['link'];
+$ctaTextColor = $ctaButton['color'];
+$ctaBg = $ctaButton['background_color'];
+
+$ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 <div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<!-- Heading -->
 	<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+	<!-- Sub Heading -->
+	<?php if ($subHeadingText) {
+		createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
+	}
+	?>
 	<!-- Description -->
 	<?php createTextElement($descriptionClass, 'div', '', $description); ?>
+	<!-- Button -->
+	<?php if ($ctaLink) {
+		createLinkElement(generateClass($block, '__button button'), $ctaStyle, $ctaLink['title'], $ctaLink['url']);
+	} ?>
 
 	<div class="row justify-content-center">
 		<?php foreach ($images as $image) { ?>

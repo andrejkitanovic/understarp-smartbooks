@@ -122,6 +122,14 @@ if ($isSingleColumn) {
 	$colClass = "col-12";
 }
 
+// ? CTA BUTTON
+$ctaButton = get_field('cta_button');
+$ctaLink = $ctaButton['link'];
+$ctaTextColor = $ctaButton['color'];
+$ctaBg = $ctaButton['background_color'];
+
+$ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
@@ -138,14 +146,18 @@ if ($isSingleColumn) {
 			<!-- Label -->
 			<?php createTextElement($labelClass, 'p', $labelStyle, $labelText); ?>
 			<!-- Heading -->
+			<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 			<!-- Sub Heading -->
 			<?php if ($subHeadingText) {
 				createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
 			}
 			?>
-			<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 			<!-- Description -->
 			<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
+			<!-- Button -->
+			<?php if ($ctaLink) {
+				createLinkElement(generateClass($block, '__button button'), $ctaStyle, $ctaLink['title'], $ctaLink['url']);
+			} ?>
 
 			<!-- Calendar -->
 			<?php createDivElement(generateClass($block, '__calendar'), '', $calendar); ?>

@@ -93,6 +93,14 @@ $inputBg = get_field('input_background');
 // ? CONTENT MAX WIDTH
 $contentMaxWidth = get_field('content_max_width');
 
+// ? CTA BUTTON
+$ctaButton = get_field('cta_button');
+$ctaLink = $ctaButton['link'];
+$ctaTextColor = $ctaButton['color'];
+$ctaBg = $ctaButton['background_color'];
+
+$ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
@@ -106,6 +114,10 @@ $contentMaxWidth = get_field('content_max_width');
 	?>
 	<!-- Description -->
 	<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
+	<!-- Button -->
+	<?php if ($ctaLink) {
+		createLinkElement(generateClass($block, '__button button'), $ctaStyle, $ctaLink['title'], $ctaLink['url']);
+	} ?>
 	<!-- Subscription -->
 	<div class="<?php echo generateClass($block, '__form') ?>" data-bg="<?php echo $inputBg; ?>">
 		<?php gravity_form('New Subscribe', false, false, false, false, true, 1, true); ?>

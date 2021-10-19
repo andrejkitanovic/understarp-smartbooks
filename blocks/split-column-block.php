@@ -160,6 +160,14 @@ if ($mediaField) {
 // ? CONTENT MAX WIDTH
 $contentMaxWidth = get_field('content_max_width');
 
+// ? CTA BUTTON
+// $ctaButton = get_field('cta_button');
+// $ctaLink = $ctaButton['link'];
+// $ctaTextColor = $ctaButton['text_color'];
+// $ctaBg = $ctaButton['background_color'];
+
+// $ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
+
 ?>
 
 
