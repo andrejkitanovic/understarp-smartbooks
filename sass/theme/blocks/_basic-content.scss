@@ -2,7 +2,9 @@
   $parent: &;
 
   .container.small_container {
-    max-width: 900px;
+    @media (min-width: breakpoint(lg)) {
+      max-width: 900px;
+    }
   }
 
   img#{$parent}__image,

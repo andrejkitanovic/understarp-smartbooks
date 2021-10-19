@@ -85,6 +85,19 @@ if ($heading) {
 
 $headingStyle = 'color:' . $headingColor . ';';
 
+// ? SUB HEADING
+
+$subHeading = get_field('sub_heading');
+
+if ($subHeading) {
+	$subHeadingClass = $block . '__sub-heading sub-heading';
+	$subHeadingSize = $subHeading['size'];
+	$subHeadingColor = $subHeading['color'];
+	$subHeadingText = $subHeading['text'];
+}
+
+$subHeadingStyle = 'color:' . $subHeadingColor . ';';
+
 // ? DESCRIPTION
 
 $description = get_field('description');
@@ -97,20 +110,39 @@ $calendar = get_field('calendar');
 
 $image = get_field('image');
 
+// ? CONTENT MAX WIDTH
+$contentMaxWidth = get_field('content_max_width');
+
+// ? SINGLE COLUMN TYPE
+$isSingleColumn = get_field('single_column_layout');
+
+$colClass = "col-12 col-xl-6";
+
+if ($isSingleColumn) {
+	$colClass = "col-12";
+}
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
 
 
-<div class="container">
+<div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<div class="row">
-		<div class="col-12 col-xl-6">
+		<?php if (!$isSingleColumn) { ?>
+			<div class="col-12 col-xl-6">
 
-		</div>
-		<div class="col-12 col-xl-6">
+			</div>
+		<?php } ?>
+		<div class="<?php echo $colClass; ?>">
 			<!-- Label -->
 			<?php createTextElement($labelClass, 'p', $labelStyle, $labelText); ?>
 			<!-- Heading -->
+			<!-- Sub Heading -->
+			<?php if ($subHeadingText) {
+				createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
+			}
+			?>
 			<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 			<!-- Description -->
 			<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
@@ -121,15 +153,14 @@ $image = get_field('image');
 		</div>
 	</div>
 </div>
-
-<div class="<?php echo generateClass($block, '__images'); ?> d-none d-sm-block">
-	<!-- Image -->
-	<?php
-	createDivImageElement(generateClass($block, '__image'), $image['url'], '', '');
-	?>
-
-</div>
-
+<?php if (!$isSingleColumn) { ?>
+	<div class="<?php echo generateClass($block, '__images'); ?> d-none d-sm-block">
+		<!-- Image -->
+		<?php
+		createDivImageElement(generateClass($block, '__image'), $image['url'], '', '');
+		?>
+	</div>
+<?php } ?>
 
 <script>
 	let initialized = false;

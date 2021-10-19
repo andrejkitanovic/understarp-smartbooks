@@ -13,6 +13,14 @@ footer {
     margin: 0;
   }
 
+  .container {
+    &.small_container {
+      @media (min-width: breakpoint(lg)) {
+        max-width: 900px;
+      }
+    }
+  }
+
   h1,
   .h1 {
     // @include font-size($font-size-base * 2.8);

@@ -66,6 +66,19 @@ $headingText = $heading['text'];
 
 $headingStyle = 'color:' . $headingColor . ';';
 
+// ? SUB HEADING
+
+$subHeading = get_field('sub_heading');
+
+if ($subHeading) {
+	$subHeadingClass = $block . '__sub-heading sub-heading';
+	$subHeadingSize = $subHeading['size'];
+	$subHeadingColor = $subHeading['color'];
+	$subHeadingText = $subHeading['text'];
+}
+
+$subHeadingStyle = 'color:' . $subHeadingColor . ';';
+
 // ? DESCRIPTION
 
 $description = get_field('description');
@@ -111,13 +124,21 @@ if ($columnTitleBolded) {
 	$columnTitleStyle .= ' font-weight: bold;';
 }
 
+// ? CONTENT MAX WIDTH
+$contentMaxWidth = get_field('content_max_width');
+
 ?>
 
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<div class="container">
+<div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<!-- Heading -->
 	<?php createTextElement(generateClass($block, '__heading heading'), $headingSize, $headingStyle, $headingText); ?>
+	<!-- Sub Heading -->
+	<?php if ($subHeadingText) {
+		createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
+	}
+	?>
 	<!-- Description -->
 	<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
 

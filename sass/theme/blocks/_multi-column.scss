@@ -66,7 +66,7 @@
     }
 
     @media (min-width: breakpoint(xl)) {
-      height: 80px;
+      height: max-content;
       //   font-size: 25px;
       line-height: 30px;
     }

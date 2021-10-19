@@ -17,12 +17,12 @@ $bgImage = get_field('baclground_image');
 $bgStyle = '';
 
 if ($bgType) {
-    if ($bgType == 'colored') {
-        $bgStyle = 'background-color: ' . $bgColor  . ';';
-    }
-    if ($bgType == 'image') {
-        $bgStyle = 'background-image: url(' . $bgImage . ');';
-    }
+	if ($bgType == 'colored') {
+		$bgStyle = 'background-color: ' . $bgColor  . ';';
+	}
+	if ($bgType == 'image') {
+		$bgStyle = 'background-image: url(' . $bgImage . ');';
+	}
 }
 
 //  * |---|--> Block text alignment
@@ -39,22 +39,22 @@ $textColor = get_field('text_color');
 $padding = get_field('padding');
 
 if ($padding) {
-    $blockClass .= ' padding-' . $padding;
+	$blockClass .= ' padding-' . $padding;
 }
 
 if ($textAlignment) {
-    $textStyle .= 'text-align:' . $textAlignment . ';';
+	$textStyle .= 'text-align:' . $textAlignment . ';';
 }
 
 if ($textColor) {
-    $textStyle .= 'color:' . $textColor . ';';
+	$textStyle .= 'color:' . $textColor . ';';
 }
 
 if ($bgStyle) {
-    $blockStyle .= $bgStyle;
+	$blockStyle .= $bgStyle;
 }
 if ($textStyle) {
-    $blockStyle .= $textStyle;
+	$blockStyle .= $textStyle;
 }
 
 // ? TEXT
@@ -66,20 +66,23 @@ $textClass = $block . '__text text';
 
 $icons = filterDisplayed(get_field('icons'));
 
+// ? CONTENT MAX WIDTH
+$contentMaxWidth = get_field('content_max_width');
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<div class="container">
-    <!-- Text -->
-    <?php createTextElement(generateClass($block, '__text text'), 'p', '', $text); ?>
+<div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
+	<!-- Text -->
+	<?php createTextElement(generateClass($block, '__text text'), 'p', '', $text); ?>
 
-    <div class="<?php echo generateClass($block, '__holder') ?> row justify-content-center">
-        <?php foreach ($icons as $icon) { ?>
-            <div class="<?php echo generateClass($block, '__icon-holder'); ?> ">
-                <!-- Icon -->
-                <?php createImageElement(generateClass($block, '__icon'), $icon['icon']['url'], $icon['icon']['title']); ?>
-            </div>
-        <?php } ?>
-    </div>
+	<div class="<?php echo generateClass($block, '__holder') ?> row justify-content-center">
+		<?php foreach ($icons as $icon) { ?>
+			<div class="<?php echo generateClass($block, '__icon-holder'); ?> ">
+				<!-- Icon -->
+				<?php createImageElement(generateClass($block, '__icon'), $icon['icon']['url'], $icon['icon']['title']); ?>
+			</div>
+		<?php } ?>
+	</div>
 </div>
 </section>

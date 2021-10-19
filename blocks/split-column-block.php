@@ -157,14 +157,14 @@ if ($mediaField) {
 	}
 }
 
-
-
+// ? CONTENT MAX WIDTH
+$contentMaxWidth = get_field('content_max_width');
 
 ?>
 
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<div class="container">
+<div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<div class="row <?php if ($order === 'right') {
 						echo 'flex-row-reverse';
 					} ?>">

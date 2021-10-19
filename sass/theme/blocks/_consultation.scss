@@ -1,6 +1,10 @@
 .consultation {
   position: relative;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
 
   &__images {
     position: absolute;

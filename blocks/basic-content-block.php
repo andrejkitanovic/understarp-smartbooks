@@ -34,10 +34,6 @@ $textAlignment = get_field('text_alignment');
 
 $textColor = get_field('text_color');
 
-//  * |---|--> Block width
-
-$smallerContent = get_field('smaller_content');
-
 //  * |---|--> Block padding
 
 $padding = get_field('padding');
@@ -83,10 +79,13 @@ $descriptionClass = $block . '__description description';
 
 $images = filterDisplayed(get_field('images'));
 
+// ? CONTENT MAX WIDTH
+$contentMaxWidth = get_field('content_max_width');
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<div class="container<?php if ($smallerContent) echo ' small_container' ?>">
+<div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<!-- Heading -->
 	<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 	<!-- Description -->

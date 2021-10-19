@@ -70,6 +70,19 @@ if ($heading) {
 
 $headingStyle = 'color:' . $headingColor . ';';
 
+// ? SUB HEADING
+
+$subHeading = get_field('sub_heading');
+
+if ($subHeading) {
+	$subHeadingClass = $block . '__sub-heading sub-heading';
+	$subHeadingSize = $subHeading['size'];
+	$subHeadingColor = $subHeading['color'];
+	$subHeadingText = $subHeading['text'];
+}
+
+$subHeadingStyle = 'color:' . $subHeadingColor . ';';
+
 // ? DESCRIPTION
 
 $description = get_field('description');
@@ -77,12 +90,20 @@ $description = get_field('description');
 // ? INPUT BACKGROUND
 $inputBg = get_field('input_background');
 
+// ? CONTENT MAX WIDTH
+$contentMaxWidth = get_field('content_max_width');
+
 ?>
 
 <?php initializeSection($blockClass, $blockStyle) ?>
-<div class="container">
+<div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<!-- Heading -->
 	<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+	<!-- Sub Heading -->
+	<?php if ($subHeadingText) {
+		createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
+	}
+	?>
 	<!-- Description -->
 	<?php createTextElement(generateClass($block, '__description description'), 'div', '', $description); ?>
 	<!-- Subscription -->
