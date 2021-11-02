@@ -6,7 +6,6 @@
   position: relative;
   box-shadow: 0 10px 6px -6px #999;
 
-
   .row {
     justify-content: center;
   }
@@ -39,7 +38,7 @@
     letter-spacing: 0;
     margin-bottom: 20px;
 
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
       font-size: 44px;
       line-height: 50px;
     }
@@ -55,7 +54,7 @@
 
   &__btn {
     margin-top: 30px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
   }
 
   &__slogan {
@@ -72,7 +71,6 @@
     }
 
     .intro {
-
       &__inner {
         @extend .col-12;
         @extend .col-md-7;
@@ -82,7 +80,7 @@
       &__title {
         text-align: left;
       }
-      
+
       &__subtitle {
         text-align: left;
       }
@@ -95,7 +93,6 @@
     }
 
     .intro {
-
       &__inner {
         @extend .col-12;
         @extend .col-md-7;

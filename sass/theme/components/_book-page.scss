@@ -1,5 +1,4 @@
 .book-page {
-
   &__inner {
     padding-top: 40px;
     padding-bottom: 30px;
@@ -19,7 +18,7 @@
     flex-direction: column;
     align-items: center;
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       margin-bottom: 40px;
     }
   }
@@ -49,7 +48,7 @@
       font-weight: 400;
       margin-bottom: 30px;
 
-      @media(min-width: 576px) {
+      @media (min-width: 576px) {
         font-size: 24px;
       }
     }
@@ -87,14 +86,13 @@
           &:focus {
             border-color: #80bdff;
             outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
           }
         }
 
         .wpcf7-not-valid-tip {
           width: 100%;
         }
-
       }
     }
 
@@ -121,7 +119,7 @@
     h3 {
       margin-top: 30px;
       margin-bottom: 5px;
-      text-transform: uppercase;
+      //   text-transform: uppercase;
       font-weight: 300;
       font-size: 24px;
       line-height: 1.2;

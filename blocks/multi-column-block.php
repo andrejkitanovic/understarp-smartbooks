@@ -191,8 +191,13 @@ $ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
 								createLinkElement(generateClass($block, '__column-button button'), $colCtaStyle, $colCtaLink['title'], $colCtaLink['url']);
 							} ?>
 						</div>
-					<?php } else { ?>
-						<a href="<?php echo $column['link']['url'] ?>" class="<?php echo generateClass($block, '__column'); ?>">
+					<?php } else {
+						$colLink = '#!';
+						if ($column['link']) {
+							$colLink = $column['link']['url'];
+						}
+					?>
+						<a href="<?php echo $colLink ?>" class="<?php echo generateClass($block, '__column'); ?>">
 							<!-- Background -->
 							<div class="<?php echo generateClass($block, $bgClass) ?>" style="<?php echo $columnStyle; ?>"></div>
 							<!-- Icon -->

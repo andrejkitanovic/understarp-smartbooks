@@ -2,7 +2,7 @@
   padding: 40px 0;
   box-shadow: 0 10px 6px -6px #999;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     padding: 80px 0;
   }
 
@@ -32,7 +32,7 @@
     h3 {
       margin-top: 30px;
       margin-bottom: 5px;
-      text-transform: uppercase;
+      //   text-transform: uppercase;
       font-weight: 300;
       font-size: 24px;
       line-height: 1.2;
@@ -101,7 +101,6 @@
   }
 
   &--image-left {
-
     .row {
       flex-direction: row;
       justify-content: center;
@@ -116,7 +115,7 @@
       @extend .col-12;
       @extend .col-lg-4;
 
-      @media(min-width: 768px) {
+      @media (min-width: 768px) {
         order: -1;
       }
     }
@@ -127,11 +126,9 @@
       justify-content: flex-end;
       margin-top: 10px;
     }
-
   }
 
   &--image-right {
-
     .row {
       flex-direction: row;
       justify-content: center;
@@ -153,7 +150,6 @@
       justify-content: center;
       margin-top: 10px;
     }
-
   }
 
   &--half {
@@ -165,7 +161,7 @@
     }
 
     div.default-content__inner {
-      @media(min-width: 992px) {
+      @media (min-width: 992px) {
         flex: 0 0 50%;
         max-width: 50%;
       }

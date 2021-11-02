@@ -21,7 +21,7 @@ if ($bgType) {
 		$bgStyle = 'background-color: ' . $bgColor  . ';';
 	}
 	if ($bgType == 'image') {
-		$bgStyle = 'background-image: url(' . $bgImage['url'] . ');';
+		$bgStyle = 'background-image: url(' . $bgImage . ');';
 	}
 }
 

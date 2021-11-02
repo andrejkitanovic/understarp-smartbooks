@@ -26,8 +26,8 @@ footer {
     // @include font-size($font-size-base * 2.8);
     font-size: 50pt;
 
-    @media screen and (min-width: breakpoint(md)) {
-      @include font-size($font-size-base * 3.1);
+    @media screen and (max-width: breakpoint(md)) {
+      @include font-size($font-size-base * 2.8);
     }
   }
   h2,
@@ -35,8 +35,8 @@ footer {
     // @include font-size($font-size-base * 2.6);
     font-size: 40pt;
 
-    @media screen and (min-width: breakpoint(md)) {
-      @include font-size($font-size-base * 2.8);
+    @media screen and (max-width: breakpoint(md)) {
+      @include font-size($font-size-base * 2.6);
     }
   }
   h3,
@@ -44,8 +44,8 @@ footer {
     // @include font-size($font-size-base * 2.4);
     font-size: 30pt;
 
-    @media screen and (min-width: breakpoint(md)) {
-      @include font-size($font-size-base * 2.6);
+    @media screen and (max-width: breakpoint(md)) {
+      @include font-size($font-size-base * 2.4);
     }
   }
   h4,
@@ -53,8 +53,8 @@ footer {
     // @include font-size($font-size-base * 2.2);
     font-size: 22pt;
 
-    @media screen and (min-width: breakpoint(md)) {
-      @include font-size($font-size-base * 2.4);
+    @media screen and (max-width: breakpoint(md)) {
+      @include font-size($font-size-base * 2.2);
     }
   }
   h5,
@@ -62,8 +62,8 @@ footer {
     // @include font-size($font-size-base * 2);
     font-size: 20pt;
 
-    @media screen and (min-width: breakpoint(md)) {
-      @include font-size($font-size-base * 2.2);
+    @media screen and (max-width: breakpoint(md)) {
+      @include font-size($font-size-base * 2);
     }
   }
   h6,
@@ -86,7 +86,7 @@ footer {
   .label {
     font-size: 25px;
     line-height: 35px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-weight: bold;
 
     @media screen and (min-width: breakpoint(md)) {
@@ -137,7 +137,7 @@ footer {
     font-size: 14px;
     line-height: 18px;
     font-weight: bold;
-    text-transform: uppercase;
+    // text-transform: uppercase;
 
     @media screen and (min-width: breakpoint(md)) {
       font-size: 18px;

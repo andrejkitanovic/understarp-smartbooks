@@ -2,7 +2,7 @@
   padding-top: 40px;
   padding-bottom: 30px;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     padding-top: 100px;
     padding-bottom: 60px;
   }
@@ -47,11 +47,10 @@
       font-size: 36px;
       line-height: 48px;
       font-weight: 200;
-      text-transform: uppercase;
+      //   text-transform: uppercase;
       color: #005c97;
       margin-bottom: 20px;
     }
-
   }
 
   &__form {
@@ -91,14 +90,13 @@
           &:focus {
             border-color: #80bdff;
             outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
           }
         }
 
         .wpcf7-not-valid-tip {
           width: 100%;
         }
-
       }
     }
 

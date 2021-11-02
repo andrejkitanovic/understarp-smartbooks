@@ -176,7 +176,11 @@ $contentMaxWidth = get_field('content_max_width');
 	<div class="row <?php if ($order === 'right') {
 						echo 'flex-row-reverse';
 					} ?>">
-		<div class="col-12 col-xl-<?php echo $firstCol; ?>">
+		<div class="col-12 col-xl-<?php if ($order === 'right') {
+										echo $secondCol;
+									} else {
+										echo $firstCol;
+									} ?>">
 			<!-- Heading -->
 			<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 			<!-- Sub Heading -->
@@ -189,7 +193,11 @@ $contentMaxWidth = get_field('content_max_width');
 			<!-- Button -->
 			<?php createLinkElement(generateClass($block, '__button button' . ' ' . $buttonLastMedia), $buttonStyle, $buttonTitle, $buttonLink); ?>
 		</div>
-		<div class="col-12 col-xl-<?php echo $secondCol; ?>" style="position: static;">
+		<div class="col-12 col-xl-<?php if ($order === 'right') {
+										echo $firstCol;
+									} else {
+										echo $secondCol;
+									} ?>" style="position: static;">
 			<div class="<?php echo generateClass($block, '__media'); ?>">
 				<!-- Media -->
 				<?php
