@@ -240,13 +240,18 @@ $contentMaxWidth = get_field('content_max_width');
 	</div>
 </div>
 <?php if ($mediaField['make_image_expand'] && $mediaType === 'image') {
+	$imageWidth = $mediaField['image_width'];
+	$imageHeight = $mediaField['image_height'];
 	$expandedStyle = '';
+	if ($imageWidth || $imageHeight) {
+		$expandedStyle .= 'height: ' . $imageHeight . 'px; width: ' . $imageWidth . 'px;';
+	}
 	$imgClass = '__expanded-image';
 	if ($order === 'right') {
-		$expandedStyle = "left: 0;";
+		$expandedStyle .= "left: 0;";
 		$imgClass .= ' stick-left';
 	} else {
-		$expandedStyle = "right: 0;";
+		$expandedStyle .= "right: 0;";
 	}
 ?>
 	<div style="<?php echo $expandedStyle; ?>" class="<?php echo generateClass($block, '__expanded-image-holder') ?>">
