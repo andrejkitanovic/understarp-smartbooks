@@ -66,7 +66,7 @@ $proportion = get_field('proportion');
     30% / 70% -> col-4 / col-8 => 4/8
     40% / 60% -> col-5 / col-7 => 5/7
     50% / 50% -> col-6 / col-6 => 6/6
-	70% / 30% -> col-8 / col-4 => 8/4
+		70% / 30% -> col-8 / col-4 => 8/4
     60% / 40% -> col-7 / col-5 => 7/5
 
     * |--> calculation is Round number of (n / 10 * 1.2) where n is from 1% to 100%
@@ -174,13 +174,13 @@ $contentMaxWidth = get_field('content_max_width');
 <?php initializeSection($blockClass, $blockStyle) ?>
 <div class="container<?php if ($contentMaxWidth == 'small') echo ' small_container' ?>">
 	<div class="row <?php if ($order === 'right') {
-						echo 'flex-row-reverse';
-					} ?>">
-		<div class="col-12 col-xl-<?php if ($order === 'right') {
-										echo $secondCol;
-									} else {
-										echo $firstCol;
+										echo 'flex-row-reverse';
 									} ?>">
+		<div class="col-12 col-xl-<?php if ($order === 'right') {
+																echo $secondCol;
+															} else {
+																echo $firstCol;
+															} ?>">
 			<!-- Heading -->
 			<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
 			<!-- Sub Heading -->
@@ -194,10 +194,10 @@ $contentMaxWidth = get_field('content_max_width');
 			<?php createLinkElement(generateClass($block, '__button button' . ' ' . $buttonLastMedia), $buttonStyle, $buttonTitle, $buttonLink); ?>
 		</div>
 		<div class="col-12 col-xl-<?php if ($order === 'right') {
-										echo $firstCol;
-									} else {
-										echo $secondCol;
-									} ?>" style="position: static;">
+																echo $firstCol;
+															} else {
+																echo $secondCol;
+															} ?>" style="position: static;">
 			<div class="<?php echo generateClass($block, '__media'); ?>">
 				<!-- Media -->
 				<?php
@@ -243,9 +243,46 @@ $contentMaxWidth = get_field('content_max_width');
 	$imageWidth = $mediaField['image_width'];
 	$imageHeight = $mediaField['image_height'];
 	$expandedStyle = '';
-	if ($imageWidth || $imageHeight) {
-		$expandedStyle .= 'height: ' . $imageHeight . 'px; width: ' . $imageWidth . 'px;';
+	/*
+
+    30% / 70% -> col-4 / col-8 => 4/8
+    40% / 60% -> col-5 / col-7 => 5/7
+    50% / 50% -> col-6 / col-6 => 6/6
+		70% / 30% -> col-8 / col-4 => 8/4
+    60% / 40% -> col-7 / col-5 => 7/5
+
+    * |--> calculation is Round number of (n / 10 * 1.2) where n is from 1% to 100%
+*/
+	if ($order == 'right') {
+		if ($firstCol == 4) {
+			$expandedStyle .= 'width: 30%; max-width: 30%;';
+		}
+		if ($firstCol == 5) {
+			$expandedStyle .= 'width: 40%; max-width: 40%;';
+		}
+		if ($firstCol == 8) {
+			$expandedStyle .= 'width: 70%; max-width: 70%;';
+		}
+		if ($firstCol == 7) {
+			$expandedStyle .= 'width: 60%; max-width: 60%;';
+		}
+	} else {
+		if ($secondCol == 4) {
+			$expandedStyle .= 'width: 30%; max-width: 30%;';
+		}
+		if ($secondCol == 5) {
+			$expandedStyle .= 'width: 40%; max-width: 40%;';
+		}
+		if ($secondCol == 8) {
+			$expandedStyle .= 'width: 70%; max-width: 70%;';
+		}
+		if ($secondCol == 7) {
+			$expandedStyle .= 'width: 60%; max-width: 60%;';
+		}
 	}
+	// if ($imageWidth || $imageHeight) {
+	// 	$expandedStyle .= 'height: ' . $imageHeight . 'px; width: ' . $imageWidth . 'px;';
+	// }
 	$imgClass = '__expanded-image';
 	if ($order === 'right') {
 		$expandedStyle .= "left: 0;";

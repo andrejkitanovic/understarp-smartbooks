@@ -129,7 +129,7 @@ mark,
 // Builds on `abbr`
 .initialism {
   @include font-size(90%);
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 // Blockquotes
