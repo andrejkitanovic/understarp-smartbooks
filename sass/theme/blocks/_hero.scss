@@ -1,6 +1,10 @@
 .hero {
   position: relative;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
 
   h1 {
     margin-bottom: 0 !important;

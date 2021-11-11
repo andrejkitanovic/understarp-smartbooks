@@ -1,5 +1,8 @@
 .basic-content {
   $parent: &;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   .container.small_container {
     @media (min-width: breakpoint(lg)) {

@@ -1,4 +1,9 @@
 .list-icon {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+
   &__text {
     font-weight: 700;
     font-size: 18px;

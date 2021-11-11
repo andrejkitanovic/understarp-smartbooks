@@ -1,5 +1,9 @@
 .multi-column {
   $parent: &;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
 
   &__columns {
     padding: 0 20px;

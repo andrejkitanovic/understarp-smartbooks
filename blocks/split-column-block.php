@@ -34,14 +34,6 @@ $textAlignment = get_field('text_alignment');
 
 $textColor = get_field('text_color');
 
-//  * |---|--> Block padding
-
-$padding = get_field('padding');
-
-if ($padding) {
-	$blockClass .= ' padding-' . $padding;
-}
-
 if ($textAlignment) {
 	$textStyle .= 'text-align:' . $textAlignment . ';';
 }
@@ -146,6 +138,7 @@ $mediaClass = '';
 
 $buttonLastMedia = '';
 
+
 if ($mediaField) {
 	if ($mediaType === 'image') {
 		$media = $mediaField['image'];
@@ -155,6 +148,17 @@ if ($mediaField) {
 		$media = $mediaField['video'];
 		$buttonLastMedia = 'd-none d-sm-inline-flex';
 	}
+}
+
+//  * |---|--> Block padding
+
+$padding = get_field('padding');
+$textColStyle = '';
+
+if ($padding && !$mediaField['make_image_expand']) {
+	$blockClass .= ' padding-' . $padding;
+} else {
+	$textColStyle .= ' padding-' . $padding;
 }
 
 // ? CONTENT MAX WIDTH
@@ -181,17 +185,19 @@ $contentMaxWidth = get_field('content_max_width');
 															} else {
 																echo $firstCol;
 															} ?>">
-			<!-- Heading -->
-			<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
-			<!-- Sub Heading -->
-			<?php if ($subHeadingText) {
-				createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
-			}
-			?>
-			<!-- Description -->
-			<?php createDivElement(generateClass($block, '__description description'), '', $description); ?>
-			<!-- Button -->
-			<?php createLinkElement(generateClass($block, '__button button' . ' ' . $buttonLastMedia), $buttonStyle, $buttonTitle, $buttonLink); ?>
+			<div class="<?php echo $textColStyle ?>">
+				<!-- Heading -->
+				<?php createTextElement($headingClass, $headingSize, $headingStyle, $headingText); ?>
+				<!-- Sub Heading -->
+				<?php if ($subHeadingText) {
+					createTextElement($subHeadingClass, $subHeadingSize, $subHeadingStyle, $subHeadingText);
+				}
+				?>
+				<!-- Description -->
+				<?php createDivElement(generateClass($block, '__description description'), '', $description); ?>
+				<!-- Button -->
+				<?php createLinkElement(generateClass($block, '__button button' . ' ' . $buttonLastMedia), $buttonStyle, $buttonTitle, $buttonLink); ?>
+			</div>
 		</div>
 		<div class="col-12 col-xl-<?php if ($order === 'right') {
 																echo $firstCol;
@@ -234,66 +240,59 @@ $contentMaxWidth = get_field('content_max_width');
 
 				<?php }
 				?>
+
+				<?php if ($mediaField['make_image_expand'] && $mediaType === 'image') {
+					$imageWidth = $mediaField['image_width'];
+					$imageHeight = $mediaField['image_height'];
+					$expandedStyle = '';
+					$imgClass = '__expanded-image ';
+					if ($order == 'right') {
+						if ($firstCol == 4) {
+							$imgClass .= 'w-30';
+						}
+						if ($firstCol == 5) {
+							$imgClass .= 'w-40';
+						}
+						if ($firstCol == 8) {
+							$imgClass .= 'w-70';
+						}
+						if ($firstCol == 7) {
+							$imgClass .= 'w-60';
+						}
+					} else {
+						if ($secondCol == 4) {
+							$imgClass .= 'w-30';
+						}
+						if ($secondCol == 5) {
+							$imgClass .= 'w-40';
+						}
+						if ($secondCol == 8) {
+							$imgClass .= 'w-70';
+						}
+						if ($secondCol == 7) {
+							$imgClass .= 'w-60';
+						}
+					}
+					// if ($imageWidth || $imageHeight) {
+					// 	$expandedStyle .= 'height: ' . $imageHeight . 'px; width: ' . $imageWidth . 'px;';
+					// }
+
+					if ($order === 'right') {
+						$expandedStyle .= "left: 0;";
+						$imgClass .= ' stick-left';
+					} else {
+						$expandedStyle .= "right: 0;";
+					}
+				?>
+					<div style="<?php echo $expandedStyle; ?>" class="<?php echo generateClass($block, '__expanded-image-holder') ?>">
+						<div class="<?php echo generateClass($block, $imgClass) ?>" style="background-image: url('<?php echo $media['url'] ?>');">
+						</div>
+					</div>
+				<?php } ?>
 			</div>
 		</div>
 
 	</div>
 </div>
-<?php if ($mediaField['make_image_expand'] && $mediaType === 'image') {
-	$imageWidth = $mediaField['image_width'];
-	$imageHeight = $mediaField['image_height'];
-	$expandedStyle = '';
-	/*
 
-    30% / 70% -> col-4 / col-8 => 4/8
-    40% / 60% -> col-5 / col-7 => 5/7
-    50% / 50% -> col-6 / col-6 => 6/6
-		70% / 30% -> col-8 / col-4 => 8/4
-    60% / 40% -> col-7 / col-5 => 7/5
-
-    * |--> calculation is Round number of (n / 10 * 1.2) where n is from 1% to 100%
-*/
-	if ($order == 'right') {
-		if ($firstCol == 4) {
-			$expandedStyle .= 'width: 30%; max-width: 30%;';
-		}
-		if ($firstCol == 5) {
-			$expandedStyle .= 'width: 40%; max-width: 40%;';
-		}
-		if ($firstCol == 8) {
-			$expandedStyle .= 'width: 70%; max-width: 70%;';
-		}
-		if ($firstCol == 7) {
-			$expandedStyle .= 'width: 60%; max-width: 60%;';
-		}
-	} else {
-		if ($secondCol == 4) {
-			$expandedStyle .= 'width: 30%; max-width: 30%;';
-		}
-		if ($secondCol == 5) {
-			$expandedStyle .= 'width: 40%; max-width: 40%;';
-		}
-		if ($secondCol == 8) {
-			$expandedStyle .= 'width: 70%; max-width: 70%;';
-		}
-		if ($secondCol == 7) {
-			$expandedStyle .= 'width: 60%; max-width: 60%;';
-		}
-	}
-	// if ($imageWidth || $imageHeight) {
-	// 	$expandedStyle .= 'height: ' . $imageHeight . 'px; width: ' . $imageWidth . 'px;';
-	// }
-	$imgClass = '__expanded-image';
-	if ($order === 'right') {
-		$expandedStyle .= "left: 0;";
-		$imgClass .= ' stick-left';
-	} else {
-		$expandedStyle .= "right: 0;";
-	}
-?>
-	<div style="<?php echo $expandedStyle; ?>" class="<?php echo generateClass($block, '__expanded-image-holder') ?>">
-		<div class="<?php echo generateClass($block, $imgClass) ?>" style="background-image: url('<?php echo $media['url'] ?>');">
-		</div>
-	</div>
-<?php } ?>
 </section>

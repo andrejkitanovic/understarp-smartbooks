@@ -1,4 +1,9 @@
 .testimonials {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+
   &__arrow-right {
     position: absolute;
     top: 50%;
