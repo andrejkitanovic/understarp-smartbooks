@@ -193,11 +193,13 @@ $ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
 						</div>
 					<?php } else {
 						$colLink = '#!';
+						$colType = 'div';
 						if ($column['link']) {
 							$colLink = $column['link']['url'];
+							$colType = 'a';
 						}
 					?>
-						<a href="<?php echo $colLink ?>" class="<?php echo generateClass($block, '__column'); ?>">
+						<<?php echo $colType ?> <?php if ($colType == 'a') echo 'href=' . $colLink ?> class="<?php echo generateClass($block, '__column'); ?>">
 							<!-- Background -->
 							<div class="<?php echo generateClass($block, $bgClass) ?>" style="<?php echo $columnStyle; ?>"></div>
 							<!-- Icon -->
@@ -215,7 +217,7 @@ $ctaStyle = 'color:' . $ctaTextColor . '; background-color:' . $ctaBg;
 							<?php createTextElement(generateClass($block, $columnTitleClass), 'p', $columnTitleStyle, $column['title']); ?>
 							<!-- Column Description -->
 							<?php createTextElement(generateClass($block, '__column-description'), 'p', '', $column['description']); ?>
-						</a>
+						</<?php echo $colType ?>>
 					<?php } ?>
 				</div>
 			<?php } ?>

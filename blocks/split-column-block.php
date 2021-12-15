@@ -213,7 +213,7 @@ $contentMaxWidth = get_field('content_max_width');
 						<!-- Button -->
 						<?php createLinkElement(generateClass($block, '__button button d-inline-flex d-sm-none'), $buttonStyle, $buttonTitle, $buttonLink); ?>
 					</div>
-				<? } else if ($mediaType === 'image' && $media) {
+				<? } else if ($mediaType === 'image' && $media && !$mediaField['hide_image_on_mobile']) {
 
 					$imageExpand = $mediaField['make_image_expand'];
 
@@ -241,7 +241,7 @@ $contentMaxWidth = get_field('content_max_width');
 				<?php }
 				?>
 
-				<?php if ($mediaField['make_image_expand'] && $mediaType === 'image') {
+				<?php if ($mediaField['make_image_expand'] && $mediaType === 'image' && !$mediaField['hide_image_on_mobile']) {
 					$imageWidth = $mediaField['image_width'];
 					$imageHeight = $mediaField['image_height'];
 					$expandedStyle = '';
