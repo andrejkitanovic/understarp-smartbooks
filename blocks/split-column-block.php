@@ -150,6 +150,12 @@ if ($mediaField) {
 	}
 }
 
+$hideMobileClass = '';
+
+if ($mediaField['hide_image_on_mobile']) {
+	$hideMobileClass = ' hide-mobile';
+}
+
 //  * |---|--> Block padding
 
 $padding = get_field('padding');
@@ -213,7 +219,7 @@ $contentMaxWidth = get_field('content_max_width');
 						<!-- Button -->
 						<?php createLinkElement(generateClass($block, '__button button d-inline-flex d-sm-none'), $buttonStyle, $buttonTitle, $buttonLink); ?>
 					</div>
-				<? } else if ($mediaType === 'image' && $media && !$mediaField['hide_image_on_mobile']) {
+				<? } else if ($mediaType === 'image' && $media) {
 
 					$imageExpand = $mediaField['make_image_expand'];
 
@@ -232,7 +238,7 @@ $contentMaxWidth = get_field('content_max_width');
 							$href = 'href="' . $mediaLink . '"';
 						}
 
-						echo '<' . $el .  ' ' . $href . ' class="' . generateClass($block, '__image')  . ' ' . $mediaClass . '" style="background-image: url(' . $media['url'] . ');' .
+						echo '<' . $el .  ' ' . $href . ' class="' . generateClass($block, '__image')  . ' ' . $mediaClass . $hideMobileClass . '" style="background-image: url(' . $media['url'] . ');' .
 							$imageStyle . '">
 						</' . $el .  '>';
 					}
@@ -241,11 +247,12 @@ $contentMaxWidth = get_field('content_max_width');
 				<?php }
 				?>
 
-				<?php if ($mediaField['make_image_expand'] && $mediaType === 'image' && !$mediaField['hide_image_on_mobile']) {
+				<?php if ($mediaField['make_image_expand'] && $mediaType === 'image') {
 					$imageWidth = $mediaField['image_width'];
 					$imageHeight = $mediaField['image_height'];
 					$expandedStyle = '';
 					$imgClass = '__expanded-image ';
+
 					if ($order == 'right') {
 						if ($firstCol == 4) {
 							$imgClass .= 'w-30';
@@ -284,7 +291,7 @@ $contentMaxWidth = get_field('content_max_width');
 						$expandedStyle .= "right: 0;";
 					}
 				?>
-					<div style="<?php echo $expandedStyle; ?>" class="<?php echo generateClass($block, '__expanded-image-holder') ?>">
+					<div style="<?php echo $expandedStyle; ?>" class="<?php echo generateClass($block, '__expanded-image-holder') ?><?php echo $hideMobileClass ?>">
 						<div class="<?php echo generateClass($block, $imgClass) ?>" style="background-image: url('<?php echo $media['url'] ?>');">
 						</div>
 					</div>
